@@ -11,7 +11,7 @@
 		E32787AF2A9CAE72006D58A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787AE2A9CAE72006D58A0 /* ContentView.swift */; };
 		E32787B12A9CAE73006D58A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E32787B02A9CAE73006D58A0 /* Assets.xcassets */; };
 		E32787B42A9CAE73006D58A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E32787B32A9CAE73006D58A0 /* Preview Assets.xcassets */; };
-		E32787BE2A9CAE73006D58A0 /* RegisterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787BD2A9CAE73006D58A0 /* RegisterViewModelTests.swift */; };
+		E32787BE2A9CAE73006D58A0 /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */; };
 		E32787C82A9CAE73006D58A0 /* TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787C72A9CAE73006D58A0 /* TaskUITests.swift */; };
 		E32787CA2A9CAE73006D58A0 /* TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787C92A9CAE73006D58A0 /* TaskUITestsLaunchTests.swift */; };
 		E32787D72A9CAFFB006D58A0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787D62A9CAFFB006D58A0 /* Coordinator.swift */; };
@@ -57,7 +57,7 @@
 		E32787B02A9CAE73006D58A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E32787B32A9CAE73006D58A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E32787B92A9CAE73006D58A0 /* TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E32787BD2A9CAE73006D58A0 /* RegisterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTests.swift; sourceTree = "<group>"; };
+		E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
 		E32787C32A9CAE73006D58A0 /* TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32787C72A9CAE73006D58A0 /* TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUITests.swift; sourceTree = "<group>"; };
 		E32787C92A9CAE73006D58A0 /* TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		E32787BC2A9CAE73006D58A0 /* TaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				E32787BD2A9CAE73006D58A0 /* RegisterViewModelTests.swift */,
+				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
 			);
 			path = TaskTests;
 			sourceTree = "<group>";
@@ -406,7 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E32787BE2A9CAE73006D58A0 /* RegisterViewModelTests.swift in Sources */,
+				E32787BE2A9CAE73006D58A0 /* EmailValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

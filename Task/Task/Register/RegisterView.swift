@@ -10,8 +10,6 @@ import SwiftUI
 // todo: we need to add @FocusState
 // todo: we need to add tests for these
 // todo: the keyboard is sometimes visible on confirmation screen - we should close it on RegisterScreen with sth like this probably: func dismissKeyboard() { UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.endEditing(true) }
-// todo: use proper regex for email validation
-
 
 struct RegisterView: View {
     @ObservedObject var viewModel: RegisterViewModel
@@ -25,6 +23,7 @@ struct RegisterView: View {
                         .frame(width: 20)
                     TextField("John Smith", text: $viewModel.name)
                         .multilineTextAlignment(.trailing)
+                        .autocorrectionDisabled()
                 }
                 
                 HStack {
@@ -34,6 +33,7 @@ struct RegisterView: View {
                     TextField("john.smith@go.co", text: $viewModel.email)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.emailAddress)
+                        .autocorrectionDisabled()
                 }
                 
                 DatePicker(

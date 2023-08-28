@@ -8,7 +8,7 @@
 import Foundation
 
 struct EmailValidator: EmailValidating {
-    private static let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    private static let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}"
     private static let message = "Email is invalid - domain must contain at least 4 characters: one or more before the dot, at least 1 dot and 2 characters after the dot"
     
     func validate(_ email: String) throws {
