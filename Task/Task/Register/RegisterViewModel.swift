@@ -10,21 +10,33 @@ import Foundation
 class RegisterViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var email: String = ""
-    @Published var dateOfBirth: Date = Date(timeIntervalSince1970: 946724400) // should be 1 Jan 2000 12:00 polish time
+    @Published var dateOfBirth: Date = Date(timeIntervalSince1970: 946724400)
     
     @Published var error: String? = nil
-    var registerButtonEnabled: Bool = false
     
     private var coordinator: Coordinator
+    private var nameValidator: NameValidating
+    private var emailValidator: EmailValidating
+    private var dateOfBirthValidator: DateOfBirthValidating
     
-    init(coordinator: Coordinator) {
+    init(coordinator: Coordinator,
+         nameValidator: NameValidating,
+         emailValidator: EmailValidating,
+         dateOfBirthValidator: DateOfBirthValidating) {
         self.coordinator = coordinator
+        self.nameValidator = nameValidator
+        self.emailValidator = emailValidator
+        self.dateOfBirthValidator = dateOfBirthValidator
     }
     
     func onRegisterButtonTapped() {
         print("onRegisterButtonTapped")
         
-        // todo: add validation for fields - separate file probably
+        validateFields()
+        
+        guard error == nil else {
+            return
+        }
         
         coordinator.goToConfirmation(
             ConfirmationInfo(
@@ -33,5 +45,23 @@ class RegisterViewModel: ObservableObject {
                 dateOfBirth: dateOfBirth
             )
         )
+    }
+}
+
+private extension RegisterViewModel {
+    func validateFields() {
+        error = nil
+        
+        do {
+            try nameValidator.validate(name)
+            try emailValidator.validate(email)
+            try dateOfBirthValidator.validate(dateOfBirth)
+        } catch ValidationError.invalidName(let message) {
+            error = message
+        } catch ValidationError.invalidEmail(let message) {
+            error = message
+        } catch ValidationError.invalidDateOfBirth(let message) {
+            error = message
+        } catch {}
     }
 }

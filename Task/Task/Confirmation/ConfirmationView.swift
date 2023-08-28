@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// todo: the keyboard is sometimes visible - we should close it on RegisterScreen with sth like this probably: func dismissKeyboard() { UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.endEditing(true) }
-
 struct ConfirmationView: View {
     @ObservedObject var viewModel: ConfirmationViewModel
     

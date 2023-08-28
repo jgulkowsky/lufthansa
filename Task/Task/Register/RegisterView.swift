@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-// todo: background for the DatePicker looks like it doesn't use our preferedColorScheme
-// todo: DatePicker dateFormat is ugly
 // todo: we need to add @FocusState
-// todo: we need to add locking register button and showing errors
-// todo: we need to add validators
 // todo: we need to add tests for these
+// todo: the keyboard is sometimes visible on confirmation screen - we should close it on RegisterScreen with sth like this probably: func dismissKeyboard() { UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.endEditing(true) }
+// todo: use proper regex for email validation
+
 
 struct RegisterView: View {
     @ObservedObject var viewModel: RegisterViewModel
@@ -45,6 +44,13 @@ struct RegisterView: View {
                     Text("Date of birth:")
                 }
                 
+                if let error = viewModel.error {
+                    Text(error)
+                        .padding(.top, 5)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                }
+                
                 Spacer()
                 
                 Button {
@@ -69,7 +75,12 @@ struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterView(
             viewModel: RegisterViewModel(
-                coordinator: CoordinatorObject()
+                coordinator: CoordinatorObject(),
+                nameValidator: NameValidator(),
+                emailValidator: EmailValidator(),
+                dateOfBirthValidator: DateOfBirthValidator(
+                    dateHelper: DateHelper()
+                )
             )
         )
     }

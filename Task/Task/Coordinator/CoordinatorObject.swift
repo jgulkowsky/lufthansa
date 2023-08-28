@@ -12,7 +12,14 @@ class CoordinatorObject: ObservableObject, Coordinator {
     @Published var confirmationViewModel: ConfirmationViewModel?
     
     init() {
-        self.registerViewModel = RegisterViewModel(coordinator: self)
+        self.registerViewModel = RegisterViewModel(
+            coordinator: self,
+            nameValidator: NameValidator(),
+            emailValidator: EmailValidator(),
+            dateOfBirthValidator: DateOfBirthValidator(
+                dateHelper: DateHelper()
+            )
+        )
     }
     
     func goToConfirmation(_ info: ConfirmationInfo) {

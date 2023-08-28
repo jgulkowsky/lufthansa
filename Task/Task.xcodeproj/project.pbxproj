@@ -24,6 +24,13 @@
 		E32787E82A9CB64A006D58A0 /* ConfirmationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
+		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
+		E3923DF52A9D280400075E5E /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF42A9D280400075E5E /* NameValidator.swift */; };
+		E3923DF82A9D2ADE00075E5E /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF72A9D2ADE00075E5E /* ValidationError.swift */; };
+		E3923DFD2A9D2CBA00075E5E /* EmailValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DFC2A9D2CBA00075E5E /* EmailValidating.swift */; };
+		E3923DFF2A9D2CD300075E5E /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DFE2A9D2CD300075E5E /* EmailValidator.swift */; };
+		E3923E012A9D2E6200075E5E /* DateOfBirthValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E002A9D2E6200075E5E /* DateOfBirthValidating.swift */; };
+		E3923E032A9D2E9800075E5E /* DateOfBirthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E022A9D2E9800075E5E /* DateOfBirthValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +71,13 @@
 		E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationInfo.swift; sourceTree = "<group>"; };
 		E3923DEA2A9CC2F700075E5E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E3923DEC2A9CC5F700075E5E /* DateHelping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelping.swift; sourceTree = "<group>"; };
+		E3923DF22A9D27F500075E5E /* NameValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidating.swift; sourceTree = "<group>"; };
+		E3923DF42A9D280400075E5E /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
+		E3923DF72A9D2ADE00075E5E /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		E3923DFC2A9D2CBA00075E5E /* EmailValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidating.swift; sourceTree = "<group>"; };
+		E3923DFE2A9D2CD300075E5E /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		E3923E002A9D2E6200075E5E /* DateOfBirthValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthValidating.swift; sourceTree = "<group>"; };
+		E3923E022A9D2E9800075E5E /* DateOfBirthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +134,7 @@
 				E32787DD2A9CB5B0006D58A0 /* Register */,
 				E32787DC2A9CB5A7006D58A0 /* Confirmation */,
 				E3923DE92A9CC2CB00075E5E /* Helpers */,
+				E3923DF12A9D27DC00075E5E /* Services */,
 				E32787B02A9CAE73006D58A0 /* Assets.xcassets */,
 				E32787B22A9CAE73006D58A0 /* Preview Content */,
 			);
@@ -187,6 +202,52 @@
 				E3923DEC2A9CC5F700075E5E /* DateHelping.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E3923DF12A9D27DC00075E5E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E3923DF62A9D2ACE00075E5E /* Validation */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E3923DF62A9D2ACE00075E5E /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				E3923DF92A9D2C8B00075E5E /* NameValidator */,
+				E3923DFA2A9D2C9400075E5E /* EmailValidator */,
+				E3923DFB2A9D2C9B00075E5E /* DateOfBirthValidator */,
+				E3923DF72A9D2ADE00075E5E /* ValidationError.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		E3923DF92A9D2C8B00075E5E /* NameValidator */ = {
+			isa = PBXGroup;
+			children = (
+				E3923DF22A9D27F500075E5E /* NameValidating.swift */,
+				E3923DF42A9D280400075E5E /* NameValidator.swift */,
+			);
+			path = NameValidator;
+			sourceTree = "<group>";
+		};
+		E3923DFA2A9D2C9400075E5E /* EmailValidator */ = {
+			isa = PBXGroup;
+			children = (
+				E3923DFC2A9D2CBA00075E5E /* EmailValidating.swift */,
+				E3923DFE2A9D2CD300075E5E /* EmailValidator.swift */,
+			);
+			path = EmailValidator;
+			sourceTree = "<group>";
+		};
+		E3923DFB2A9D2C9B00075E5E /* DateOfBirthValidator */ = {
+			isa = PBXGroup;
+			children = (
+				E3923E002A9D2E6200075E5E /* DateOfBirthValidating.swift */,
+				E3923E022A9D2E9800075E5E /* DateOfBirthValidator.swift */,
+			);
+			path = DateOfBirthValidator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,15 +380,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */,
 				E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */,
 				E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */,
 				E32787E62A9CB62E006D58A0 /* CoordinatorView.swift in Sources */,
 				E32787E12A9CB5E9006D58A0 /* ConfirmationViewModel.swift in Sources */,
 				E32787DF2A9CB5CA006D58A0 /* RegisterViewModel.swift in Sources */,
+				E3923DFF2A9D2CD300075E5E /* EmailValidator.swift in Sources */,
+				E3923E012A9D2E6200075E5E /* DateOfBirthValidating.swift in Sources */,
 				E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */,
 				E32787E82A9CB64A006D58A0 /* ConfirmationInfo.swift in Sources */,
 				E32787AF2A9CAE72006D58A0 /* ContentView.swift in Sources */,
+				E3923E032A9D2E9800075E5E /* DateOfBirthValidator.swift in Sources */,
+				E3923DF52A9D280400075E5E /* NameValidator.swift in Sources */,
 				E32787D92A9CB241006D58A0 /* RegisterView.swift in Sources */,
+				E3923DFD2A9D2CBA00075E5E /* EmailValidating.swift in Sources */,
+				E3923DF82A9D2ADE00075E5E /* ValidationError.swift in Sources */,
 				E32787E42A9CB616006D58A0 /* CoordinatorObject.swift in Sources */,
 				E32787AD2A9CAE72006D58A0 /* TaskApp.swift in Sources */,
 				E32787D72A9CAFFB006D58A0 /* Coordinator.swift in Sources */,
