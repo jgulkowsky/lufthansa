@@ -14,6 +14,9 @@
 		E32787BE2A9CAE73006D58A0 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787BD2A9CAE73006D58A0 /* TaskTests.swift */; };
 		E32787C82A9CAE73006D58A0 /* TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787C72A9CAE73006D58A0 /* TaskUITests.swift */; };
 		E32787CA2A9CAE73006D58A0 /* TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787C92A9CAE73006D58A0 /* TaskUITestsLaunchTests.swift */; };
+		E32787D72A9CAFFB006D58A0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787D62A9CAFFB006D58A0 /* Coordinator.swift */; };
+		E32787D92A9CB241006D58A0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787D82A9CB241006D58A0 /* RegisterView.swift */; };
+		E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787DA2A9CB3F9006D58A0 /* ConfirmationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		E32787C32A9CAE73006D58A0 /* TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32787C72A9CAE73006D58A0 /* TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUITests.swift; sourceTree = "<group>"; };
 		E32787C92A9CAE73006D58A0 /* TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E32787D62A9CAFFB006D58A0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E32787D82A9CB241006D58A0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		E32787DA2A9CB3F9006D58A0 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,9 @@
 				E32787AE2A9CAE72006D58A0 /* ContentView.swift */,
 				E32787B02A9CAE73006D58A0 /* Assets.xcassets */,
 				E32787B22A9CAE73006D58A0 /* Preview Content */,
+				E32787D62A9CAFFB006D58A0 /* Coordinator.swift */,
+				E32787D82A9CB241006D58A0 /* RegisterView.swift */,
+				E32787DA2A9CB3F9006D58A0 /* ConfirmationView.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -257,8 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */,
 				E32787AF2A9CAE72006D58A0 /* ContentView.swift in Sources */,
+				E32787D92A9CB241006D58A0 /* RegisterView.swift in Sources */,
 				E32787AD2A9CAE72006D58A0 /* TaskApp.swift in Sources */,
+				E32787D72A9CAFFB006D58A0 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
