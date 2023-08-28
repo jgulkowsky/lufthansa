@@ -178,10 +178,8 @@
 		E32787BC2A9CAE73006D58A0 /* TaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				E3923E232A9D4C4100075E5E /* Tests */,
 				E3923E112A9D467D00075E5E /* Mocks */,
-				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
-				E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */,
-				E3923E1B2A9D4A8400075E5E /* CoordinatorObjectTests.swift */,
 			);
 			path = TaskTests;
 			sourceTree = "<group>";
@@ -288,6 +286,16 @@
 				E3923E192A9D479400075E5E /* MockDateOfBirthValidator.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E3923E232A9D4C4100075E5E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
+				E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */,
+				E3923E1B2A9D4A8400075E5E /* CoordinatorObjectTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
