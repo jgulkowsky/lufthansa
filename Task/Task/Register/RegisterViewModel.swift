@@ -8,6 +8,13 @@
 import Foundation
 
 class RegisterViewModel: ObservableObject {
+    @Published var name: String = ""
+    @Published var email: String = ""
+    @Published var dateOfBirth: Date = Date(timeIntervalSince1970: 946724400) // should be 1 Jan 2000 12:00 polish time
+    
+    @Published var error: String? = nil
+    var registerButtonEnabled: Bool = false
+    
     private var coordinator: Coordinator
     
     init(coordinator: Coordinator) {
@@ -17,19 +24,14 @@ class RegisterViewModel: ObservableObject {
     func onRegisterButtonTapped() {
         print("onRegisterButtonTapped")
         
-        let dateString = "25/04/1992"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yy"
-        guard let date = dateFormatter.date(from: dateString) else {
-            return
-        }
+        // todo: add validation for fields - separate file probably
         
-        let info = ConfirmationInfo(
-            name: "Jan G",
-            email: "jg@jg.co",
-            dateOfBirth: date
+        coordinator.goToConfirmation(
+            ConfirmationInfo(
+                name: name,
+                email: email,
+                dateOfBirth: dateOfBirth
+            )
         )
-        
-        coordinator.goToConfirmation(info)
     }
 }

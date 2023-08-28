@@ -17,7 +17,7 @@ class CoordinatorObject: ObservableObject, Coordinator {
     
     func goToConfirmation(_ info: ConfirmationInfo) {
         self.confirmationViewModel = ConfirmationViewModel(
-            info: info, coordinator: self
+            info: info, coordinator: self, dateHeleper: DateHelper()
         )
     }
 }

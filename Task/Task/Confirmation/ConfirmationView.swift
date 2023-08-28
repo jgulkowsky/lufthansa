@@ -7,20 +7,41 @@
 
 import SwiftUI
 
+// todo: the keyboard is sometimes visible - we should close it on RegisterScreen with sth like this probably: func dismissKeyboard() { UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.endEditing(true) }
+
 struct ConfirmationView: View {
-    private var viewModel: ConfirmationViewModel
-    
-    init(viewModel: ConfirmationViewModel) {
-        self.viewModel = viewModel
-    }
+    @ObservedObject var viewModel: ConfirmationViewModel
     
     var body: some View {
-        VStack {
-            Text("Confirmation")
-            Text("name: \(viewModel.info.name)")
-            Text("email: \(viewModel.info.email)")
-            Text("date of birth: \(viewModel.info.dateOfBirth)")
+        NavigationView {
+            VStack {
+                Spacer().frame(height: 100)
+    
+                Text("Thank You")
+                    .font(.system(size: 22, weight: .semibold))
+    
+                Text("For registering with")
+                    .padding(.top, 2)
+                Text("the following details:")
+                
+                Text("\u{2022} Name: \(viewModel.name)")
+                    .padding(.top, 5)
+                    .font(.system(size: 17, weight: .medium))
+                
+                Text("\u{2022} E-mail: \(viewModel.email)")
+                    .padding(.top, 2)
+                    .font(.system(size: 17, weight: .medium))
+                
+                Text("\u{2022} Date of birth: \(viewModel.dateOfBirth)")
+                    .padding(.top, 2)
+                    .font(.system(size: 17, weight: .medium))
+                
+                Spacer()
+            }
+            .padding()
+            .navigationTitle("Confirmation")
         }
+        .font(.system(size: 18))
     }
 }
 
@@ -42,7 +63,8 @@ struct ConfirmationView_Previews: PreviewProvider {
         ConfirmationView(
             viewModel: ConfirmationViewModel(
                 info: info,
-                coordinator: CoordinatorObject()
+                coordinator: CoordinatorObject(),
+                dateHeleper: DateHelper()
             )
         )
     }
