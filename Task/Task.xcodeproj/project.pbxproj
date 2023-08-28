@@ -17,6 +17,11 @@
 		E32787D72A9CAFFB006D58A0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787D62A9CAFFB006D58A0 /* Coordinator.swift */; };
 		E32787D92A9CB241006D58A0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787D82A9CB241006D58A0 /* RegisterView.swift */; };
 		E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787DA2A9CB3F9006D58A0 /* ConfirmationView.swift */; };
+		E32787DF2A9CB5CA006D58A0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787DE2A9CB5CA006D58A0 /* RegisterViewModel.swift */; };
+		E32787E12A9CB5E9006D58A0 /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E02A9CB5E9006D58A0 /* ConfirmationViewModel.swift */; };
+		E32787E42A9CB616006D58A0 /* CoordinatorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E32A9CB616006D58A0 /* CoordinatorObject.swift */; };
+		E32787E62A9CB62E006D58A0 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E52A9CB62E006D58A0 /* CoordinatorView.swift */; };
+		E32787E82A9CB64A006D58A0 /* ConfirmationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		E32787D62A9CAFFB006D58A0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E32787D82A9CB241006D58A0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E32787DA2A9CB3F9006D58A0 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		E32787DE2A9CB5CA006D58A0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E32787E02A9CB5E9006D58A0 /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
+		E32787E32A9CB616006D58A0 /* CoordinatorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorObject.swift; sourceTree = "<group>"; };
+		E32787E52A9CB62E006D58A0 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +112,11 @@
 			children = (
 				E32787AC2A9CAE72006D58A0 /* TaskApp.swift */,
 				E32787AE2A9CAE72006D58A0 /* ContentView.swift */,
+				E32787E22A9CB5FB006D58A0 /* Coordinator */,
+				E32787DD2A9CB5B0006D58A0 /* Register */,
+				E32787DC2A9CB5A7006D58A0 /* Confirmation */,
 				E32787B02A9CAE73006D58A0 /* Assets.xcassets */,
 				E32787B22A9CAE73006D58A0 /* Preview Content */,
-				E32787D62A9CAFFB006D58A0 /* Coordinator.swift */,
-				E32787D82A9CB241006D58A0 /* RegisterView.swift */,
-				E32787DA2A9CB3F9006D58A0 /* ConfirmationView.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -134,6 +144,35 @@
 				E32787C92A9CAE73006D58A0 /* TaskUITestsLaunchTests.swift */,
 			);
 			path = TaskUITests;
+			sourceTree = "<group>";
+		};
+		E32787DC2A9CB5A7006D58A0 /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				E32787DA2A9CB3F9006D58A0 /* ConfirmationView.swift */,
+				E32787E02A9CB5E9006D58A0 /* ConfirmationViewModel.swift */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		E32787DD2A9CB5B0006D58A0 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E32787D82A9CB241006D58A0 /* RegisterView.swift */,
+				E32787DE2A9CB5CA006D58A0 /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		E32787E22A9CB5FB006D58A0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E32787D62A9CAFFB006D58A0 /* Coordinator.swift */,
+				E32787E32A9CB616006D58A0 /* CoordinatorObject.swift */,
+				E32787E52A9CB62E006D58A0 /* CoordinatorView.swift */,
+				E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +306,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */,
+				E32787E62A9CB62E006D58A0 /* CoordinatorView.swift in Sources */,
+				E32787E12A9CB5E9006D58A0 /* ConfirmationViewModel.swift in Sources */,
+				E32787DF2A9CB5CA006D58A0 /* RegisterViewModel.swift in Sources */,
+				E32787E82A9CB64A006D58A0 /* ConfirmationInfo.swift in Sources */,
 				E32787AF2A9CAE72006D58A0 /* ContentView.swift in Sources */,
 				E32787D92A9CB241006D58A0 /* RegisterView.swift in Sources */,
+				E32787E42A9CB616006D58A0 /* CoordinatorObject.swift in Sources */,
 				E32787AD2A9CAE72006D58A0 /* TaskApp.swift in Sources */,
 				E32787D72A9CAFFB006D58A0 /* Coordinator.swift in Sources */,
 			);
