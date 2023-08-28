@@ -31,6 +31,19 @@
 		E3923DFF2A9D2CD300075E5E /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DFE2A9D2CD300075E5E /* EmailValidator.swift */; };
 		E3923E012A9D2E6200075E5E /* DateOfBirthValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E002A9D2E6200075E5E /* DateOfBirthValidating.swift */; };
 		E3923E032A9D2E9800075E5E /* DateOfBirthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E022A9D2E9800075E5E /* DateOfBirthValidator.swift */; };
+		E3923E072A9D457B00075E5E /* RegisterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */; };
+		E3923E092A9D45EC00075E5E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787DE2A9CB5CA006D58A0 /* RegisterViewModel.swift */; };
+		E3923E0A2A9D45F800075E5E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787D62A9CAFFB006D58A0 /* Coordinator.swift */; };
+		E3923E0B2A9D460900075E5E /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF72A9D2ADE00075E5E /* ValidationError.swift */; };
+		E3923E0D2A9D460D00075E5E /* DateOfBirthValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E002A9D2E6200075E5E /* DateOfBirthValidating.swift */; };
+		E3923E0E2A9D461300075E5E /* EmailValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DFC2A9D2CBA00075E5E /* EmailValidating.swift */; };
+		E3923E0F2A9D461500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
+		E3923E102A9D461900075E5E /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DFE2A9D2CD300075E5E /* EmailValidator.swift */; };
+		E3923E132A9D468F00075E5E /* MockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E122A9D468F00075E5E /* MockCoordinator.swift */; };
+		E3923E142A9D46E300075E5E /* ConfirmationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */; };
+		E3923E162A9D46F300075E5E /* MockNameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E152A9D46F300075E5E /* MockNameValidator.swift */; };
+		E3923E182A9D474500075E5E /* MockEmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E172A9D474500075E5E /* MockEmailValidator.swift */; };
+		E3923E1A2A9D479400075E5E /* MockDateOfBirthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E192A9D479400075E5E /* MockDateOfBirthValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +91,11 @@
 		E3923DFE2A9D2CD300075E5E /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		E3923E002A9D2E6200075E5E /* DateOfBirthValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthValidating.swift; sourceTree = "<group>"; };
 		E3923E022A9D2E9800075E5E /* DateOfBirthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthValidator.swift; sourceTree = "<group>"; };
+		E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTests.swift; sourceTree = "<group>"; };
+		E3923E122A9D468F00075E5E /* MockCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoordinator.swift; sourceTree = "<group>"; };
+		E3923E152A9D46F300075E5E /* MockNameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNameValidator.swift; sourceTree = "<group>"; };
+		E3923E172A9D474500075E5E /* MockEmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEmailValidator.swift; sourceTree = "<group>"; };
+		E3923E192A9D479400075E5E /* MockDateOfBirthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateOfBirthValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +170,9 @@
 		E32787BC2A9CAE73006D58A0 /* TaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				E3923E112A9D467D00075E5E /* Mocks */,
 				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
+				E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */,
 			);
 			path = TaskTests;
 			sourceTree = "<group>";
@@ -248,6 +268,17 @@
 				E3923E022A9D2E9800075E5E /* DateOfBirthValidator.swift */,
 			);
 			path = DateOfBirthValidator;
+			sourceTree = "<group>";
+		};
+		E3923E112A9D467D00075E5E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E3923E122A9D468F00075E5E /* MockCoordinator.swift */,
+				E3923E152A9D46F300075E5E /* MockNameValidator.swift */,
+				E3923E172A9D474500075E5E /* MockEmailValidator.swift */,
+				E3923E192A9D479400075E5E /* MockDateOfBirthValidator.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,7 +437,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3923E0A2A9D45F800075E5E /* Coordinator.swift in Sources */,
+				E3923E0B2A9D460900075E5E /* ValidationError.swift in Sources */,
+				E3923E102A9D461900075E5E /* EmailValidator.swift in Sources */,
 				E32787BE2A9CAE73006D58A0 /* EmailValidatorTests.swift in Sources */,
+				E3923E0F2A9D461500075E5E /* NameValidating.swift in Sources */,
+				E3923E142A9D46E300075E5E /* ConfirmationInfo.swift in Sources */,
+				E3923E182A9D474500075E5E /* MockEmailValidator.swift in Sources */,
+				E3923E092A9D45EC00075E5E /* RegisterViewModel.swift in Sources */,
+				E3923E0E2A9D461300075E5E /* EmailValidating.swift in Sources */,
+				E3923E1A2A9D479400075E5E /* MockDateOfBirthValidator.swift in Sources */,
+				E3923E072A9D457B00075E5E /* RegisterViewModelTests.swift in Sources */,
+				E3923E132A9D468F00075E5E /* MockCoordinator.swift in Sources */,
+				E3923E0D2A9D460D00075E5E /* DateOfBirthValidating.swift in Sources */,
+				E3923E162A9D46F300075E5E /* MockNameValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

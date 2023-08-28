@@ -30,8 +30,6 @@ class RegisterViewModel: ObservableObject {
     }
     
     func onRegisterButtonTapped() {
-        print("onRegisterButtonTapped")
-        
         validateFields()
         
         guard error == nil else {
