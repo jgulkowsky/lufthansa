@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-// todo: we need to add @FocusState
 // todo: we need to add tests for these
 // todo: the keyboard is sometimes visible on confirmation screen - we should close it on RegisterScreen with sth like this probably: func dismissKeyboard() { UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.endEditing(true) }
 
 struct RegisterView: View {
+    enum FocusedField {
+        case name, email
+    }
+    
     @ObservedObject var viewModel: RegisterViewModel
+    @FocusState private var focusedField: FocusedField?
 
     var body: some View {
         NavigationView {
@@ -24,6 +28,8 @@ struct RegisterView: View {
                     TextField("John Smith", text: $viewModel.name)
                         .multilineTextAlignment(.trailing)
                         .autocorrectionDisabled()
+                        .focused($focusedField, equals: .name)
+                        .onSubmit { focusedField = .email }
                 }
                 
                 HStack {
@@ -34,6 +40,8 @@ struct RegisterView: View {
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.emailAddress)
                         .autocorrectionDisabled()
+                        .focused($focusedField, equals: .email)
+                        .onSubmit { focusedField = nil }
                 }
                 
                 DatePicker(
