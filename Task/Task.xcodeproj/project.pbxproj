@@ -51,6 +51,7 @@
 		E3923E202A9D4ACF00075E5E /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF42A9D280400075E5E /* NameValidator.swift */; };
 		E3923E212A9D4AD200075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923E222A9D4AD400075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
+		E3923E252A9D4CB200075E5E /* NameValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923E242A9D4CB200075E5E /* NameValidatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		E3923E172A9D474500075E5E /* MockEmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEmailValidator.swift; sourceTree = "<group>"; };
 		E3923E192A9D479400075E5E /* MockDateOfBirthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateOfBirthValidator.swift; sourceTree = "<group>"; };
 		E3923E1B2A9D4A8400075E5E /* CoordinatorObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorObjectTests.swift; sourceTree = "<group>"; };
+		E3923E242A9D4CB200075E5E /* NameValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 		E3923E232A9D4C4100075E5E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E3923E242A9D4CB200075E5E /* NameValidatorTests.swift */,
 				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
 				E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */,
 				E3923E1B2A9D4A8400075E5E /* CoordinatorObjectTests.swift */,
@@ -475,6 +478,7 @@
 				E3923E1E2A9D4AA600075E5E /* ConfirmationViewModel.swift in Sources */,
 				E3923E162A9D46F300075E5E /* MockNameValidator.swift in Sources */,
 				E3923E222A9D4AD400075E5E /* DateHelping.swift in Sources */,
+				E3923E252A9D4CB200075E5E /* NameValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
