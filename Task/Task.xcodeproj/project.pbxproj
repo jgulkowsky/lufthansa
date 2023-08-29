@@ -22,6 +22,7 @@
 		E32787E42A9CB616006D58A0 /* CoordinatorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E32A9CB616006D58A0 /* CoordinatorObject.swift */; };
 		E32787E62A9CB62E006D58A0 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E52A9CB62E006D58A0 /* CoordinatorView.swift */; };
 		E32787E82A9CB64A006D58A0 /* ConfirmationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */; };
+		E341838B2A9E461400337865 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341838A2A9E461400337865 /* DateHelperTests.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
 		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
@@ -90,6 +91,7 @@
 		E32787E32A9CB616006D58A0 /* CoordinatorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorObject.swift; sourceTree = "<group>"; };
 		E32787E52A9CB62E006D58A0 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		E32787E72A9CB64A006D58A0 /* ConfirmationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationInfo.swift; sourceTree = "<group>"; };
+		E341838A2A9E461400337865 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		E3923DEA2A9CC2F700075E5E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E3923DEC2A9CC5F700075E5E /* DateHelping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelping.swift; sourceTree = "<group>"; };
 		E3923DF22A9D27F500075E5E /* NameValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidating.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
 				E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */,
 				E3923E1B2A9D4A8400075E5E /* CoordinatorObjectTests.swift */,
+				E341838A2A9E461400337865 /* DateHelperTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				E3923E1E2A9D4AA600075E5E /* ConfirmationViewModel.swift in Sources */,
 				E3923E162A9D46F300075E5E /* MockNameValidator.swift in Sources */,
 				E3923E222A9D4AD400075E5E /* DateHelping.swift in Sources */,
+				E341838B2A9E461400337865 /* DateHelperTests.swift in Sources */,
 				E3923E252A9D4CB200075E5E /* NameValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

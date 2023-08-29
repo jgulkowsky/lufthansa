@@ -1,6 +1,6 @@
 //
 //  EmailValidatorTests.swift
-//  EmailValidatorTests
+//  TaskTests
 //
 //  Created by Jan Gulkowski on 28/08/2023.
 //
