@@ -11,20 +11,22 @@ class CoordinatorObject: ObservableObject, Coordinator {
     @Published var registerViewModel: RegisterViewModel!
     @Published var confirmationViewModel: ConfirmationViewModel?
     
+    private var dateHelper = DateHelper()
+    
     init() {
         self.registerViewModel = RegisterViewModel(
             coordinator: self,
             nameValidator: NameValidator(),
             emailValidator: EmailValidator(),
             dateOfBirthValidator: DateOfBirthValidator(
-                dateHelper: DateHelper()
+                dateHelper: dateHelper
             )
         )
     }
     
     func goToConfirmation(_ info: ConfirmationInfo) {
         self.confirmationViewModel = ConfirmationViewModel(
-            info: info, coordinator: self, dateHeleper: DateHelper()
+            info: info, coordinator: self, dateHelper: dateHelper
         )
     }
 }

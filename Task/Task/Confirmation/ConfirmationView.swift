@@ -62,7 +62,7 @@ struct ConfirmationView_Previews: PreviewProvider {
             viewModel: ConfirmationViewModel(
                 info: info,
                 coordinator: CoordinatorObject(),
-                dateHeleper: DateHelper()
+                dateHelper: DateHelper()
             )
         )
     }

@@ -7,22 +7,22 @@
 
 import Foundation
 
-struct DateHelper: DateHelping {
-    func dateToString(_ date: Date, withFormat dateFormat: String) -> String {
-        let dateFormatter = getDateFormatter(withFormat: dateFormat)
+class DateHelper: DateHelping {
+    private lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter
+    }()
+    
+    func dateToString(_ date: Date) -> String {
         return dateFormatter.string(from: date)
     }
     
-    func dateFromString(_ string: String, withFormat dateFormat: String) -> Date? {
-        let dateFormatter = getDateFormatter(withFormat: dateFormat)
+    func dateFromString(_ string: String) -> Date? {
         return dateFormatter.date(from: string)
     }
-}
-
-private extension DateHelper {
-    func getDateFormatter(withFormat dateFormat: String) -> DateFormatter {
-        let dateFormatter = DateFormatter()
+    
+    func setDateFormat(_ dateFormat: String) {
         dateFormatter.dateFormat = dateFormat
-        return dateFormatter
     }
 }

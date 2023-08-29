@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol DateHelping {
-    func dateToString(_ date: Date, withFormat dateFormat: String) -> String
-    func dateFromString(_ string: String, withFormat dateFormat: String) -> Date?
+protocol DateHelping: AnyObject {
+    func dateToString(_ date: Date) -> String
+    func dateFromString(_ string: String) -> Date?
+    func setDateFormat(_ dateFormat: String)
 }

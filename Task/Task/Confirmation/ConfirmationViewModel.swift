@@ -12,16 +12,19 @@ class ConfirmationViewModel: ObservableObject {
     @Published var email: String
     @Published var dateOfBirth: String
     
-    private var coordinator: Coordinator
+    private unowned var coordinator: Coordinator
+    
+    private static let dateFormat = "dd MMM yyyy"
     
     init(info: ConfirmationInfo,
          coordinator: Coordinator,
-         dateHeleper: DateHelping
+         dateHelper: DateHelping // todo: rename
     ) {
         self.coordinator = coordinator
 
         self.name = info.name
         self.email = info.email
-        self.dateOfBirth = dateHeleper.dateToString(info.dateOfBirth, withFormat: "dd MMM yyyy")
+        dateHelper.setDateFormat(ConfirmationViewModel.dateFormat)
+        self.dateOfBirth = dateHelper.dateToString(info.dateOfBirth)
     }
 }

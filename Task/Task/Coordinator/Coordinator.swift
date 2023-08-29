@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol Coordinator {
+protocol Coordinator: AnyObject {
     func goToConfirmation(_ info: ConfirmationInfo)
 }

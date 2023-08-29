@@ -8,7 +8,7 @@
 import Foundation
 
 struct DateOfBirthValidator: DateOfBirthValidating {
-    private var dateHelper: DateHelping
+    private unowned var dateHelper: DateHelping
     
     private static let minDateString = "1/1/1900"
     private static let maxDateString = "31/12/2019"
@@ -29,14 +29,12 @@ struct DateOfBirthValidator: DateOfBirthValidating {
 
 private extension DateOfBirthValidator {
     func isDateOfBirthValid(_ dateOfBirth: Date) -> Bool {
-        let dateFormat = DateOfBirthValidator.dateFormat
+        dateHelper.setDateFormat(DateOfBirthValidator.dateFormat)
         let minDate = dateHelper.dateFromString(
-            DateOfBirthValidator.minDateString,
-            withFormat: dateFormat
+            DateOfBirthValidator.minDateString
         )!
         let maxDate = dateHelper.dateFromString(
-            DateOfBirthValidator.maxDateString,
-            withFormat: dateFormat
+            DateOfBirthValidator.maxDateString
         )!
         return dateOfBirth >= minDate && dateOfBirth <= maxDate
     }

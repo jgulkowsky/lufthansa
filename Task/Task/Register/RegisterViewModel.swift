@@ -14,7 +14,8 @@ class RegisterViewModel: ObservableObject {
     
     @Published var error: String? = nil
     
-    private var coordinator: Coordinator
+    private unowned var coordinator: Coordinator
+    
     private var nameValidator: NameValidating
     private var emailValidator: EmailValidating
     private var dateOfBirthValidator: DateOfBirthValidating
