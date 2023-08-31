@@ -9,11 +9,12 @@ import Foundation
 
 class MockEmailValidator: EmailValidating {
     var shouldThrow = false
+    var messageToThrow = ""
     
     func validate(_ email: String) throws {
         if shouldThrow {
             throw ValidationError.invalidEmail(
-                message: "invalid email"
+                message: messageToThrow
             )
         }
     }

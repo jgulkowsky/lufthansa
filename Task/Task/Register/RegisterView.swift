@@ -8,11 +8,8 @@
 import SwiftUI
 
 // todo: verify if haptic works on physical device and add haptic for failed action
-
-// todo: it would be nice to add showing errors as soon as user finish typing in a given field - but then you need to validate only given field then and to put it to the error - solution here would be to validate all the fields and then this field only - if this field only is ok still other fields can have errors
-// todo: it would be nice to highlight the field which has problem - for this you need 3 errors
+// todo: highlight the field which has error
 // todo: it would be nice to have views split into smaller structs - like MyTextField MyButton MyError (or better names)
-// todo: we need different kind of validation - because we shouldn't show error when field is empty when finished typing but we should show error when field is empty on buttonSubmit - or we can deal with it more easily - we just don't let register button to be enabled if any of the fields is empty or we have error (when textfield is opened and filled and it has error - error variable can be not set yet - so validate once again)
 // todo: make these 2 views of nicer design
 
 struct RegisterView: View {
@@ -30,23 +27,47 @@ struct RegisterView: View {
                     Text("Name:")
                     Spacer()
                         .frame(width: 20)
-                    TextField("John Smith", text: $viewModel.name)
-                        .multilineTextAlignment(.trailing)
-                        .autocorrectionDisabled()
-                        .focused($focusedField, equals: .name)
-                        .onSubmit { focusedField = .email }
+                    TextField(
+                        "John Smith",
+                        text: $viewModel.name,
+                        onEditingChanged: { hasFocus in
+                            if hasFocus {
+                                viewModel.onStartedEditingName()
+                            } else {
+                                viewModel.onFinishedEditingName()
+                            }
+                        }
+                    )
+                    .multilineTextAlignment(.trailing)
+                    .autocorrectionDisabled()
+                    .focused($focusedField, equals: .name)
+                    .onSubmit {
+                        focusedField = .email
+                    }
                 }
                 
                 HStack {
                     Text("E-mail:")
                     Spacer()
                         .frame(width: 20)
-                    TextField("john.smith@go.co", text: $viewModel.email)
-                        .multilineTextAlignment(.trailing)
-                        .keyboardType(.emailAddress)
-                        .autocorrectionDisabled()
-                        .focused($focusedField, equals: .email)
-                        .onSubmit { focusedField = nil }
+                    TextField(
+                        "john.smith@go.co",
+                        text: $viewModel.email,
+                        onEditingChanged: { hasFocus in
+                            if hasFocus {
+                                viewModel.onStartedEditingEmail()
+                            } else {
+                                viewModel.onFinishedEditingEmail()
+                            }
+                        }
+                    )
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.emailAddress)
+                    .autocorrectionDisabled()
+                    .focused($focusedField, equals: .email)
+                    .onSubmit {
+                        focusedField = nil
+                    }
                 }
                 
                 DatePicker(
@@ -55,9 +76,11 @@ struct RegisterView: View {
                     displayedComponents: .date
                 ) {
                     Text("Date of birth:")
+                }.onTapGesture {
+                    focusedField = nil // we need to loose focus from previously tapped textfield
                 }
                 
-                if let error = viewModel.error {
+                if let error = viewModel.latestError {
                     Text(error)
                         .padding(.top, 5)
                         .foregroundColor(.red)
@@ -73,9 +96,10 @@ struct RegisterView: View {
                         .font(.system(size: 18, weight: .semibold))
                         .padding(.horizontal)
                 }
+                .disabled(!viewModel.registerButtonEnabled)
                 .padding()
                 .foregroundColor(.white)
-                .background(.green)
+                .background(viewModel.registerButtonEnabled ? .green : .gray)
                 .clipShape(Capsule())
             }
             .padding()

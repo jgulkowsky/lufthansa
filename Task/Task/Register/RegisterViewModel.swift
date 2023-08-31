@@ -10,9 +10,45 @@ import Foundation
 class RegisterViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var email: String = ""
-    @Published var dateOfBirth: Date = Date(timeIntervalSince1970: 946724400)
+    @Published var dateOfBirth: Date = Date(timeIntervalSince1970: 946724400) {
+        didSet {
+            onSetNewDateOfBirth()
+        }
+    }
     
-    @Published var error: String? = nil
+    @Published var latestError: String? = nil
+    
+    var registerButtonEnabled: Bool {
+        !name.isEmpty && !email.isEmpty && latestError == nil
+    }
+    
+    private var nameError: String? = nil {
+        didSet {
+            if nameError != nil {
+                latestError = nameError
+            } else if emailError == nil && dateOfBirthError == nil {
+                latestError = nil
+            }
+        }
+    }
+    private var emailError: String? = nil {
+        didSet {
+            if emailError != nil {
+                latestError = emailError
+            } else if nameError == nil && dateOfBirthError == nil {
+                latestError = nil
+            }
+        }
+    }
+    private var dateOfBirthError: String? = nil {
+        didSet {
+            if dateOfBirthError != nil {
+                latestError = dateOfBirthError
+            } else if nameError == nil && emailError == nil {
+                latestError = nil
+            }
+        }
+    }
     
     private unowned var coordinator: Coordinator
     
@@ -33,10 +69,44 @@ class RegisterViewModel: ObservableObject {
         self.hapticFeedbackGenerator = hapticFeedbackGenerator
     }
     
+    func onStartedEditingName() {
+        nameError = nil
+    }
+    
+    func onStartedEditingEmail() {
+        emailError = nil
+    }
+    
+    func onFinishedEditingName() {
+        nameError = nil
+        guard !name.isEmpty else {
+            return
+        }
+        
+        do {
+            try nameValidator.validate(name)
+        } catch ValidationError.invalidName(let message) {
+            nameError = message
+        } catch {}
+    }
+    
+    func onFinishedEditingEmail() {
+        emailError = nil
+        guard !email.isEmpty else {
+            return
+        }
+        
+        do {
+            try emailValidator.validate(email)
+        } catch ValidationError.invalidEmail(let message) {
+            emailError = message
+        } catch {}
+    }
+    
     func onRegisterButtonTapped() {
         validateFields()
         
-        guard error == nil else {
+        guard latestError == nil else {
             return
         }
         
@@ -54,18 +124,31 @@ class RegisterViewModel: ObservableObject {
 
 private extension RegisterViewModel {
     func validateFields() {
-        error = nil
+        nameError = nil
+        emailError = nil
+        dateOfBirthError = nil
+        latestError = nil
         
         do {
             try nameValidator.validate(name)
             try emailValidator.validate(email)
             try dateOfBirthValidator.validate(dateOfBirth)
         } catch ValidationError.invalidName(let message) {
-            error = message
+            nameError = message
         } catch ValidationError.invalidEmail(let message) {
-            error = message
+            emailError = message
         } catch ValidationError.invalidDateOfBirth(let message) {
-            error = message
+            dateOfBirthError = message
+        } catch {}
+    }
+    
+    func onSetNewDateOfBirth() {
+        dateOfBirthError = nil
+        
+        do {
+            try dateOfBirthValidator.validate(dateOfBirth)
+        } catch ValidationError.invalidDateOfBirth(let message) {
+            dateOfBirthError = message
         } catch {}
     }
 }

@@ -9,11 +9,12 @@ import Foundation
 
 class MockNameValidator: NameValidating {
     var shouldThrow = false
+    var messageToThrow = ""
     
     func validate(_ name: String) throws {
         if shouldThrow {
             throw ValidationError.invalidName(
-                message: "invalid name"
+                message: messageToThrow
             )
         }
     }
