@@ -11,6 +11,7 @@ struct TextFieldView: View {
     var label: String
     var placeholder: String
     @Binding var text: String
+    var hasError: Bool
     
     var onEditingStarted: (() -> Void)? = nil
     var onEditingFinished: (() -> Void)? = nil
@@ -18,6 +19,7 @@ struct TextFieldView: View {
     var body: some View {
         HStack {
             Text(label)
+                .foregroundColor(hasError ? .red : .black)
             Spacer()
                 .frame(width: 20)
             TextField(
@@ -31,6 +33,7 @@ struct TextFieldView: View {
                     }
                 }
             )
+            .foregroundColor(hasError ? .red : .black)
             .multilineTextAlignment(.trailing)
             .autocorrectionDisabled()
         }
@@ -43,6 +46,7 @@ struct TextFieldView_Previews: PreviewProvider {
             label: "Name:",
             placeholder: "John Wick",
             text: .constant("Jaś Fasola"),
+            hasError: true,
             onEditingStarted: { print("onEditingStarted") },
             onEditingFinished: { print("onEditingFinished") }
         )

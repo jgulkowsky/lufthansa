@@ -16,13 +16,8 @@ class RegisterViewModel: ObservableObject {
         }
     }
     
-    @Published var latestError: String? = nil
-    
-    var registerButtonEnabled: Bool {
-        !name.isEmpty && !email.isEmpty && latestError == nil
-    }
-    
-    private var nameError: String? = nil {
+    @Published var latestError: String? = nil // todo: as we have all these private errors now public maybe we don't need latestError - especially not everything works with it?
+    @Published var nameError: String? = nil {
         didSet {
             if nameError != nil {
                 latestError = nameError
@@ -31,7 +26,7 @@ class RegisterViewModel: ObservableObject {
             }
         }
     }
-    private var emailError: String? = nil {
+    @Published var emailError: String? = nil {
         didSet {
             if emailError != nil {
                 latestError = emailError
@@ -40,7 +35,7 @@ class RegisterViewModel: ObservableObject {
             }
         }
     }
-    private var dateOfBirthError: String? = nil {
+    @Published var dateOfBirthError: String? = nil {
         didSet {
             if dateOfBirthError != nil {
                 latestError = dateOfBirthError
@@ -48,6 +43,10 @@ class RegisterViewModel: ObservableObject {
                 latestError = nil
             }
         }
+    }
+    
+    var registerButtonEnabled: Bool {
+        !name.isEmpty && !email.isEmpty && latestError == nil
     }
     
     private unowned var coordinator: Coordinator

@@ -26,6 +26,7 @@ struct RegisterView: View {
                     label: "Name:",
                     placeholder: "John Smith",
                     text: $viewModel.name,
+                    hasError: viewModel.nameError != nil,
                     onEditingStarted: viewModel.onStartedEditingName,
                     onEditingFinished: viewModel.onFinishedEditingName
                 )
@@ -36,6 +37,7 @@ struct RegisterView: View {
                     label: "E-mail:",
                     placeholder: "john.smith@go.co",
                     text: $viewModel.email,
+                    hasError: viewModel.emailError != nil,
                     onEditingStarted: viewModel.onStartedEditingEmail,
                     onEditingFinished: viewModel.onFinishedEditingEmail
                 )
@@ -51,6 +53,7 @@ struct RegisterView: View {
                 }.onTapGesture {
                     focusedField = nil // we need to loose focus from previously tapped textfield
                 }
+                .foregroundColor(viewModel.dateOfBirthError != nil ? .red : .black)
                 
                 if let error = viewModel.latestError {
                     ErrorView(error: error)
