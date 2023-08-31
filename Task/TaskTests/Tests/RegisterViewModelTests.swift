@@ -14,28 +14,32 @@ final class RegisterViewModelTests: XCTestCase {
     private var nameValidator: MockNameValidator!
     private var emailValidator: MockEmailValidator!
     private var dateOfBirthValidator: MockDateOfBirthValidator!
+    private var hapticFeedbackGenerator: MockHapticFeedbackGenerator!
     
     override func setUp() {
         coordinator = MockCoordinator()
         nameValidator = MockNameValidator()
         emailValidator = MockEmailValidator()
         dateOfBirthValidator = MockDateOfBirthValidator()
+        hapticFeedbackGenerator = MockHapticFeedbackGenerator()
         
         viewModel = RegisterViewModel(
             coordinator: coordinator,
             nameValidator: nameValidator,
             emailValidator: emailValidator,
-            dateOfBirthValidator: dateOfBirthValidator
+            dateOfBirthValidator: dateOfBirthValidator,
+            hapticFeedbackGenerator: hapticFeedbackGenerator
         )
     }
     
-    func test_given_validatorsDontThrowDuringValidation_when_viewModelOnRegisterButtonTapped_then_noErrorIsShownAndCoordinatorGoesToConfirmation() {
+    func test_given_validatorsDontThrowDuringValidation_when_viewModelOnRegisterButtonTapped_then_noErrorIsShown_hapticFeedbackGeneratorIsAskedToGenerateSuccessfulSound_andCoordinatorGoesToConfirmation() {
         // when
         viewModel.onRegisterButtonTapped()
         
         // then
         XCTAssertNil(viewModel.error)
         XCTAssertTrue(coordinator.wentToConfirmation)
+        XCTAssertTrue(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
     
     func test_given_nameValidatorThrows_when_viewModelOnRegisterButtonTapped_then_coordinatorDoesntGoToConfirmationAndErrorIsShown() {

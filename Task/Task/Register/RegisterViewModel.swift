@@ -19,15 +19,18 @@ class RegisterViewModel: ObservableObject {
     private var nameValidator: NameValidating
     private var emailValidator: EmailValidating
     private var dateOfBirthValidator: DateOfBirthValidating
+    private var hapticFeedbackGenerator: HapticFeedbackGenerating
     
     init(coordinator: Coordinator,
          nameValidator: NameValidating,
          emailValidator: EmailValidating,
-         dateOfBirthValidator: DateOfBirthValidating) {
+         dateOfBirthValidator: DateOfBirthValidating,
+         hapticFeedbackGenerator: HapticFeedbackGenerating) {
         self.coordinator = coordinator
         self.nameValidator = nameValidator
         self.emailValidator = emailValidator
         self.dateOfBirthValidator = dateOfBirthValidator
+        self.hapticFeedbackGenerator = hapticFeedbackGenerator
     }
     
     func onRegisterButtonTapped() {
@@ -36,6 +39,8 @@ class RegisterViewModel: ObservableObject {
         guard error == nil else {
             return
         }
+        
+        hapticFeedbackGenerator.generateSuccessSound()
         
         coordinator.goToConfirmation(
             ConfirmationInfo(

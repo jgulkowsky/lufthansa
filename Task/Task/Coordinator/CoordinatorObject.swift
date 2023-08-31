@@ -20,7 +20,8 @@ class CoordinatorObject: ObservableObject, Coordinator {
             emailValidator: EmailValidator(),
             dateOfBirthValidator: DateOfBirthValidator(
                 dateHelper: dateHelper
-            )
+            ),
+            hapticFeedbackGenerator: HapticFeedbackGenerator()
         )
     }
     
