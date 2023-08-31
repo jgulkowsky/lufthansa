@@ -44,16 +44,14 @@ struct RegisterView: View {
                 .focused($focusedField, equals: .email)
                 .onSubmit { focusedField = nil }
                 
-                DatePicker(
-                    selection: $viewModel.dateOfBirth,
-                    in: ...Date.now,
-                    displayedComponents: .date
-                ) {
-                    Text("Date of birth:")
-                }.onTapGesture {
+                DatePickerView(
+                    label: "Date of birth:",
+                    date: $viewModel.dateOfBirth,
+                    hasError: viewModel.dateOfBirthError != nil
+                )
+                .onTapGesture {
                     focusedField = nil // we need to loose focus from previously tapped textfield
                 }
-                .foregroundColor(viewModel.dateOfBirthError != nil ? .red : .black)
                 
                 if let error = viewModel.latestError {
                     ErrorView(error: error)
