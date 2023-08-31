@@ -18,7 +18,7 @@ class ConfirmationViewModel: ObservableObject {
     
     init(info: ConfirmationInfo,
          coordinator: Coordinator,
-         dateHelper: DateHelping // todo: rename
+         dateHelper: DateHelping
     ) {
         self.coordinator = coordinator
 

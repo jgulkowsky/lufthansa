@@ -42,7 +42,7 @@ final class RegisterViewModelTests: XCTestCase {
         XCTAssertTrue(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
     
-    func test_given_nameValidatorThrows_when_viewModelOnRegisterButtonTapped_then_coordinatorDoesntGoToConfirmationAndErrorIsShown() {
+    func test_given_nameValidatorThrows_when_viewModelOnRegisterButtonTapped_then_coordinatorDoesntGoToConfirmation_andErrorIsShown_andHapticFeedbackGeneratorIsNotAskedToGenerateSuccessfulSound() {
         // given
         nameValidator.shouldThrow = true
         
@@ -52,9 +52,10 @@ final class RegisterViewModelTests: XCTestCase {
         // then
         XCTAssertFalse(coordinator.wentToConfirmation)
         XCTAssertNotNil(viewModel.error)
+        XCTAssertFalse(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
     
-    func test_given_emailValidatorThrows_when_viewModelOnRegisterButtonTapped_then_coordinatorDoesntGoToConfirmationAndErrorIsShown() {
+    func test_given_emailValidatorThrows_when_viewModelOnRegisterButtonTapped_then_coordinatorDoesntGoToConfirmation_andErrorIsShown_andHapticFeedbackGeneratorIsNotAskedToGenerateSuccessfulSound() {
         // given
         emailValidator.shouldThrow = true
         
@@ -64,9 +65,10 @@ final class RegisterViewModelTests: XCTestCase {
         // then
         XCTAssertFalse(coordinator.wentToConfirmation)
         XCTAssertNotNil(viewModel.error)
+        XCTAssertFalse(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
     
-    func test_given_dateOfBirthValidatorThrows_when_viewModelOnRegisterButtonTapped_then_coordinatorDoesntGoToConfirmationAndErrorIsShown() {
+    func test_given_dateOfBirthValidatorThrows_when_viewModelOnRegisterButtonTapped_then_coordinatorDoesntGoToConfirmation_andErrorIsShown_andHapticFeedbackGeneratorIsNotAskedToGenerateSuccessfulSound() {
         // given
         dateOfBirthValidator.shouldThrow = true
         
@@ -76,5 +78,6 @@ final class RegisterViewModelTests: XCTestCase {
         // then
         XCTAssertFalse(coordinator.wentToConfirmation)
         XCTAssertNotNil(viewModel.error)
+        XCTAssertFalse(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
 }

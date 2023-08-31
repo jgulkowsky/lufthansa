@@ -8,6 +8,7 @@
 import SwiftUI
 
 // todo: verify if haptic works on physical device and add haptic for failed action
+
 // todo: it would be nice to add showing errors as soon as user finish typing in a given field - but then you need to validate only given field then and to put it to the error - solution here would be to validate all the fields and then this field only - if this field only is ok still other fields can have errors
 // todo: it would be nice to highlight the field which has problem - for this you need 3 errors
 // todo: it would be nice to have views split into smaller structs - like MyTextField MyButton MyError (or better names)
