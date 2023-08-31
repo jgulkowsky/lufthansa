@@ -9,7 +9,6 @@ import SwiftUI
 
 // todo: verify if haptic works on physical device and add haptic for failed action
 // todo: highlight the field which has error
-// todo: it would be nice to have views split into smaller structs - like MyTextField MyButton MyError (or better names)
 // todo: make these 2 views of nicer design
 
 struct RegisterView: View {
@@ -54,26 +53,17 @@ struct RegisterView: View {
                 }
                 
                 if let error = viewModel.latestError {
-                    Text(error)
-                        .padding(.top, 5)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
+                    ErrorView(error: error)
                 }
                 
                 Spacer()
                 
-                Button {
-                    viewModel.onRegisterButtonTapped()
-                } label: {
-                    Text("Register")
-                        .font(.system(size: 18, weight: .semibold))
-                        .padding(.horizontal)
-                }
+                SolidButton(
+                    text: "Register",
+                    isEnabled: viewModel.registerButtonEnabled,
+                    onTap: viewModel.onRegisterButtonTapped
+                )
                 .disabled(!viewModel.registerButtonEnabled)
-                .padding()
-                .foregroundColor(.white)
-                .background(viewModel.registerButtonEnabled ? .green : .gray)
-                .clipShape(Capsule())
             }
             .padding()
             .navigationTitle("Register")

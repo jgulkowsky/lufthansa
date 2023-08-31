@@ -33,6 +33,8 @@
 		E341839B2AA0C62A00337865 /* HapticFeedbackGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183942AA0C3E800337865 /* HapticFeedbackGenerating.swift */; };
 		E341839C2AA0C6B100337865 /* HapticFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183972AA0C55D00337865 /* HapticFeedbackGenerator.swift */; };
 		E341839E2AA0F33E00337865 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341839D2AA0F33E00337865 /* TextFieldView.swift */; };
+		E34183A02AA0F57700337865 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341839F2AA0F57700337865 /* ErrorView.swift */; };
+		E34183A22AA0F5C300337865 /* SolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183A12AA0F5C300337865 /* SolidButton.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
 		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
@@ -110,6 +112,8 @@
 		E34183972AA0C55D00337865 /* HapticFeedbackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackGenerator.swift; sourceTree = "<group>"; };
 		E34183992AA0C61600337865 /* MockHapticFeedbackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHapticFeedbackGenerator.swift; sourceTree = "<group>"; };
 		E341839D2AA0F33E00337865 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		E341839F2AA0F57700337865 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E34183A12AA0F5C300337865 /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
 		E3923DEA2A9CC2F700075E5E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E3923DEC2A9CC5F700075E5E /* DateHelping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelping.swift; sourceTree = "<group>"; };
 		E3923DF22A9D27F500075E5E /* NameValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidating.swift; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 				E32787D82A9CB241006D58A0 /* RegisterView.swift */,
 				E32787DE2A9CB5CA006D58A0 /* RegisterViewModel.swift */,
 				E341839D2AA0F33E00337865 /* TextFieldView.swift */,
+				E341839F2AA0F57700337865 /* ErrorView.swift */,
+				E34183A12AA0F5C300337865 /* SolidButton.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -468,12 +474,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34183A02AA0F57700337865 /* ErrorView.swift in Sources */,
 				E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */,
 				E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */,
 				E341839E2AA0F33E00337865 /* TextFieldView.swift in Sources */,
 				E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */,
 				E34183912AA0C18700337865 /* AppLauncher.swift in Sources */,
 				E32787E62A9CB62E006D58A0 /* CoordinatorView.swift in Sources */,
+				E34183A22AA0F5C300337865 /* SolidButton.swift in Sources */,
 				E32787E12A9CB5E9006D58A0 /* ConfirmationViewModel.swift in Sources */,
 				E32787DF2A9CB5CA006D58A0 /* RegisterViewModel.swift in Sources */,
 				E3923DFF2A9D2CD300075E5E /* EmailValidator.swift in Sources */,
