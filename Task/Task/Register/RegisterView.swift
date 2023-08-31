@@ -23,52 +23,25 @@ struct RegisterView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    Text("Name:")
-                    Spacer()
-                        .frame(width: 20)
-                    TextField(
-                        "John Smith",
-                        text: $viewModel.name,
-                        onEditingChanged: { hasFocus in
-                            if hasFocus {
-                                viewModel.onStartedEditingName()
-                            } else {
-                                viewModel.onFinishedEditingName()
-                            }
-                        }
-                    )
-                    .multilineTextAlignment(.trailing)
-                    .autocorrectionDisabled()
-                    .focused($focusedField, equals: .name)
-                    .onSubmit {
-                        focusedField = .email
-                    }
-                }
+                TextFieldView(
+                    label: "Name:",
+                    placeholder: "John Smith",
+                    text: $viewModel.name,
+                    onEditingStarted: viewModel.onStartedEditingName,
+                    onEditingFinished: viewModel.onFinishedEditingName
+                )
+                .focused($focusedField, equals: .name)
+                .onSubmit { focusedField = .email }
                 
-                HStack {
-                    Text("E-mail:")
-                    Spacer()
-                        .frame(width: 20)
-                    TextField(
-                        "john.smith@go.co",
-                        text: $viewModel.email,
-                        onEditingChanged: { hasFocus in
-                            if hasFocus {
-                                viewModel.onStartedEditingEmail()
-                            } else {
-                                viewModel.onFinishedEditingEmail()
-                            }
-                        }
-                    )
-                    .multilineTextAlignment(.trailing)
-                    .keyboardType(.emailAddress)
-                    .autocorrectionDisabled()
-                    .focused($focusedField, equals: .email)
-                    .onSubmit {
-                        focusedField = nil
-                    }
-                }
+                TextFieldView(
+                    label: "E-mail:",
+                    placeholder: "john.smith@go.co",
+                    text: $viewModel.email,
+                    onEditingStarted: viewModel.onStartedEditingEmail,
+                    onEditingFinished: viewModel.onFinishedEditingEmail
+                )
+                .focused($focusedField, equals: .email)
+                .onSubmit { focusedField = nil }
                 
                 DatePicker(
                     selection: $viewModel.dateOfBirth,
