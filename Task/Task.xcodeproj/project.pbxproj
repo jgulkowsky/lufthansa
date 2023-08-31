@@ -25,6 +25,8 @@
 		E341838B2A9E461400337865 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341838A2A9E461400337865 /* DateHelperTests.swift */; };
 		E341838D2AA0B93500337865 /* DateOfBirthValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341838C2AA0B93500337865 /* DateOfBirthValidatorTests.swift */; };
 		E341838F2AA0B97500337865 /* MockDateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341838E2AA0B97500337865 /* MockDateHelper.swift */; };
+		E34183912AA0C18700337865 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183902AA0C18700337865 /* AppLauncher.swift */; };
+		E34183932AA0C1C600337865 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183922AA0C1C600337865 /* TestApp.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
 		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
@@ -96,6 +98,8 @@
 		E341838A2A9E461400337865 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		E341838C2AA0B93500337865 /* DateOfBirthValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthValidatorTests.swift; sourceTree = "<group>"; };
 		E341838E2AA0B97500337865 /* MockDateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateHelper.swift; sourceTree = "<group>"; };
+		E34183902AA0C18700337865 /* AppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncher.swift; sourceTree = "<group>"; };
+		E34183922AA0C1C600337865 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 		E3923DEA2A9CC2F700075E5E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E3923DEC2A9CC5F700075E5E /* DateHelping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelping.swift; sourceTree = "<group>"; };
 		E3923DF22A9D27F500075E5E /* NameValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidating.swift; sourceTree = "<group>"; };
@@ -162,7 +166,9 @@
 		E32787AB2A9CAE72006D58A0 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				E34183902AA0C18700337865 /* AppLauncher.swift */,
 				E32787AC2A9CAE72006D58A0 /* TaskApp.swift */,
+				E34183922AA0C1C600337865 /* TestApp.swift */,
 				E32787AE2A9CAE72006D58A0 /* ContentView.swift */,
 				E32787E22A9CB5FB006D58A0 /* Coordinator */,
 				E32787DD2A9CB5B0006D58A0 /* Register */,
@@ -443,10 +449,12 @@
 				E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */,
 				E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */,
 				E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */,
+				E34183912AA0C18700337865 /* AppLauncher.swift in Sources */,
 				E32787E62A9CB62E006D58A0 /* CoordinatorView.swift in Sources */,
 				E32787E12A9CB5E9006D58A0 /* ConfirmationViewModel.swift in Sources */,
 				E32787DF2A9CB5CA006D58A0 /* RegisterViewModel.swift in Sources */,
 				E3923DFF2A9D2CD300075E5E /* EmailValidator.swift in Sources */,
+				E34183932AA0C1C600337865 /* TestApp.swift in Sources */,
 				E3923E012A9D2E6200075E5E /* DateOfBirthValidating.swift in Sources */,
 				E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */,
 				E32787E82A9CB64A006D58A0 /* ConfirmationInfo.swift in Sources */,
