@@ -16,6 +16,11 @@ final class DateHelperTests: XCTestCase {
     override func setUp() {
         dateHelper = DateHelper()
     }
+}
+
+// MARK: - dateToString tests
+
+extension DateHelperTests {
     
     func test_given_dateIs_10_March_2020_andDateFormatIsDefault_when_dateToString_then_10_mar_2020_shouldBeReturned() {
         // given
@@ -62,7 +67,11 @@ final class DateHelperTests: XCTestCase {
         // then
         XCTAssertEqual(string, "10/03/2020")
     }
-    
+}
+
+// MARK: - dateFromString tests
+
+extension DateHelperTests {
     func test_given_StringIs_10_March_2020_andDateFormatIsDefault_when_dateFromString_then_nilShouldBeReturned() {
         // given
         let string = "10 March 2020"
@@ -83,8 +92,8 @@ final class DateHelperTests: XCTestCase {
         
         // then
         XCTAssertNotNil(date)
-        XCTAssertEqual(date?.timeIntervalSince1970, DateHelperTests.timestampUno) // todo: problem with gmt zones - we are in Poland gmt+1 and date is given as for gmt+0 (what would be the correct approach to this? probably we should always have some time zone info in our DateHelper.dateFormatter)
+        XCTAssertEqual(date?.timeIntervalSince1970, DateHelperTests.timestampUno)
     }
     
-    // todo: add tests also for dateFromSting and changing dateFormat
+    // todo: for some reason when I set dateFormat to be sth else than the default on dd MMM yyyy and pass let's say 10 mar 2020 (that's in previous format) then I can still get proper date - that's weird and we should check it out later on and write tests related to this
 }

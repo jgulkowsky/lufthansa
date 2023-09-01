@@ -11,6 +11,7 @@ class DateHelper: DateHelping {
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         return dateFormatter
     }()
     
