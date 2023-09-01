@@ -8,45 +8,40 @@
 import Foundation
 
 class RegisterViewModel: ObservableObject {
-    @Published var name: String = ""
-    @Published var email: String = ""
+    @Published var name: String = "" {
+        didSet {
+            if nameError != nil {
+                validateNameIfNotEmpty()
+            }
+        }
+    }
+    
+    @Published var email: String = "" {
+        didSet {
+            if emailError != nil {
+                validateEmailIfNotEmpty()
+            }
+        }
+    }
+    
     @Published var dateOfBirth: Date = Date(timeIntervalSince1970: 946724400) {
         didSet {
             onSetNewDateOfBirth()
         }
     }
     
-    @Published var latestError: String? = nil // todo: as we have all these private errors now public maybe we don't need latestError - especially not everything works with it?
-    @Published var nameError: String? = nil {
-        didSet {
-            if nameError != nil {
-                latestError = nameError
-            } else if emailError == nil && dateOfBirthError == nil {
-                latestError = nil
-            }
-        }
-    }
-    @Published var emailError: String? = nil {
-        didSet {
-            if emailError != nil {
-                latestError = emailError
-            } else if nameError == nil && dateOfBirthError == nil {
-                latestError = nil
-            }
-        }
-    }
-    @Published var dateOfBirthError: String? = nil {
-        didSet {
-            if dateOfBirthError != nil {
-                latestError = dateOfBirthError
-            } else if nameError == nil && emailError == nil {
-                latestError = nil
-            }
-        }
+    var errorToShow: String? {
+        [nameError, emailError, dateOfBirthError]
+        .compactMap { $0 }
+        .first
     }
     
+    @Published var nameError: String? = nil
+    @Published var emailError: String? = nil
+    @Published var dateOfBirthError: String? = nil
+    
     var registerButtonEnabled: Bool {
-        !name.isEmpty && !email.isEmpty && latestError == nil
+        !name.isEmpty && !email.isEmpty && errorToShow == nil
     }
     
     private unowned var coordinator: Coordinator
@@ -68,44 +63,18 @@ class RegisterViewModel: ObservableObject {
         self.hapticFeedbackGenerator = hapticFeedbackGenerator
     }
     
-    func onStartedEditingName() {
-        nameError = nil
-    }
-    
-    func onStartedEditingEmail() {
-        emailError = nil
-    }
-    
     func onFinishedEditingName() {
-        nameError = nil
-        guard !name.isEmpty else {
-            return
-        }
-        
-        do {
-            try nameValidator.validate(name)
-        } catch ValidationError.invalidName(let message) {
-            nameError = message
-        } catch {}
+        validateNameIfNotEmpty()
     }
     
     func onFinishedEditingEmail() {
-        emailError = nil
-        guard !email.isEmpty else {
-            return
-        }
-        
-        do {
-            try emailValidator.validate(email)
-        } catch ValidationError.invalidEmail(let message) {
-            emailError = message
-        } catch {}
+        validateEmailIfNotEmpty()
     }
     
     func onRegisterButtonTapped() {
         validateFields()
         
-        guard latestError == nil else {
+        guard errorToShow == nil else {
             return
         }
         
@@ -122,28 +91,52 @@ class RegisterViewModel: ObservableObject {
 }
 
 private extension RegisterViewModel {
+    func onSetNewDateOfBirth() {
+        validateDateOfBirth()
+    }
+    
     func validateFields() {
+        validateName()
+        validateEmail()
+        validateDateOfBirth()
+    }
+    
+    func validateNameIfNotEmpty() {
         nameError = nil
+        guard !name.isEmpty else {
+            return
+        }
+        validateName()
+    }
+    
+    func validateEmailIfNotEmpty() {
         emailError = nil
-        dateOfBirthError = nil
-        latestError = nil
-        
+        guard !email.isEmpty else {
+            return
+        }
+        validateEmail()
+    }
+    
+    func validateName() {
+        nameError = nil
         do {
             try nameValidator.validate(name)
-            try emailValidator.validate(email)
-            try dateOfBirthValidator.validate(dateOfBirth)
         } catch ValidationError.invalidName(let message) {
             nameError = message
-        } catch ValidationError.invalidEmail(let message) {
-            emailError = message
-        } catch ValidationError.invalidDateOfBirth(let message) {
-            dateOfBirthError = message
         } catch {}
     }
     
-    func onSetNewDateOfBirth() {
+    func validateEmail() {
+        emailError = nil
+        do {
+            try emailValidator.validate(email)
+        } catch ValidationError.invalidEmail(let message) {
+            emailError = message
+        } catch {}
+    }
+    
+    func validateDateOfBirth() {
         dateOfBirthError = nil
-        
         do {
             try dateOfBirthValidator.validate(dateOfBirth)
         } catch ValidationError.invalidDateOfBirth(let message) {

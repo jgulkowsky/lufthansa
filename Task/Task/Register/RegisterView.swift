@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-// todo: verify if haptic works on physical device and add haptic for failed action
-// todo: highlight the field which has error
+// todo: verify if haptic works on physical device and add haptic for failed action (need better iPhone than 6s or newer macbook than 2015 - update is not possible here)
 // todo: make these 2 views of nicer design
 
 struct RegisterView: View {
@@ -27,7 +26,6 @@ struct RegisterView: View {
                     placeholder: "John Smith",
                     text: $viewModel.name,
                     hasError: viewModel.nameError != nil,
-                    onEditingStarted: viewModel.onStartedEditingName,
                     onEditingFinished: viewModel.onFinishedEditingName
                 )
                 .focused($focusedField, equals: .name)
@@ -38,7 +36,6 @@ struct RegisterView: View {
                     placeholder: "john.smith@go.co",
                     text: $viewModel.email,
                     hasError: viewModel.emailError != nil,
-                    onEditingStarted: viewModel.onStartedEditingEmail,
                     onEditingFinished: viewModel.onFinishedEditingEmail
                 )
                 .focused($focusedField, equals: .email)
@@ -50,14 +47,19 @@ struct RegisterView: View {
                     hasError: viewModel.dateOfBirthError != nil
                 )
                 .onTapGesture {
-                    focusedField = nil // we need to loose focus from previously tapped textfield
+                    focusedField = nil
                 }
                 
-                if let error = viewModel.latestError {
+                if let error = viewModel.errorToShow {
                     ErrorView(error: error)
                 }
                 
                 Spacer()
+                    .frame(maxWidth: .infinity)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        focusedField = nil
+                    }
                 
                 SolidButton(
                     text: "Register",
