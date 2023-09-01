@@ -24,7 +24,7 @@ class RegisterViewModel: ObservableObject {
         }
     }
     
-    @Published var dateOfBirth: Date = Date(timeIntervalSince1970: 946724400) {
+    @Published var dateOfBirth: Date = RegisterViewModel.initialDateOfBirth {
         didSet {
             onSetNewDateOfBirth()
         }
@@ -57,6 +57,8 @@ class RegisterViewModel: ObservableObject {
     private var emailValidator: EmailValidating
     private var dateOfBirthValidator: DateOfBirthValidating
     private var hapticFeedbackGenerator: HapticFeedbackGenerating
+    
+    private static let initialDateOfBirth = Date(timeIntervalSince1970: 946724400)
     
     init(coordinator: Coordinator,
          nameValidator: NameValidating,

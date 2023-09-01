@@ -10,8 +10,10 @@ import Foundation
 class MockNameValidator: NameValidating {
     var shouldThrow = false
     var messageToThrow = ""
+    var hasValidated = false
     
     func validate(_ name: String) throws {
+        hasValidated = true
         if shouldThrow {
             throw ValidationError.invalidName(
                 message: messageToThrow

@@ -10,8 +10,10 @@ import Foundation
 class MockEmailValidator: EmailValidating {
     var shouldThrow = false
     var messageToThrow = ""
+    var hasValidated = false
     
     func validate(_ email: String) throws {
+        hasValidated = true
         if shouldThrow {
             throw ValidationError.invalidEmail(
                 message: messageToThrow
