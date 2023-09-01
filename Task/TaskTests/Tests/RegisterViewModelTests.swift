@@ -71,7 +71,7 @@ extension RegisterViewModelTests {
         given_nameIsNotEmpty_andEmailIsNotEmpty_andThereIsNoError()
         
         // when
-        viewModel.latestError = "some error"
+        setRandomError()
         
         // then
         XCTAssertFalse(viewModel.registerButtonEnabled)
@@ -80,127 +80,102 @@ extension RegisterViewModelTests {
     private func given_nameIsNotEmpty_andEmailIsNotEmpty_andThereIsNoError() {
         viewModel.name = "some name"
         viewModel.email = "some email"
-        viewModel.latestError = nil
+        resetErrors()
+    }
+    
+    private func setRandomError() {
+        switch Int.random(in: 0..<3) {
+        case 0: viewModel.nameError = "some error"
+        case 1: viewModel.emailError = "some error"
+        case 2: viewModel.dateOfBirthError = "some error"
+        default: break
+        }
     }
 }
 
-// MARK: onFinishedEditingName & onStartedEditingName tests
+// MARK: onFinishedEditingName tests
 
 extension RegisterViewModelTests {
     func test_given_nameValidatorThrowsError_andNameIsNotEmpty_andThereIsNoError_when_onFinishedEditingNameCalled_then_errorIsSet() {
         // given
         nameValidator.shouldThrow = true
         viewModel.name = "some name"
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.onFinishedEditingName()
         
         // then
-        XCTAssertNotNil(viewModel.latestError)
+        XCTAssertNotNil(viewModel.errorToShow)
     }
     
     func test_given_nameValidatorThrowsError_andNameIsEmpty_andThereIsNoError_when_onFinishedEditingNameCalled_then_thereIsStillNoError() {
         // given
         nameValidator.shouldThrow = true
         viewModel.name = ""
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.onFinishedEditingName()
         
         // then
-        XCTAssertNil(viewModel.latestError)
+        XCTAssertNil(viewModel.errorToShow)
     }
     
     func test_given_nameValidatorDoesntThrowError_andNameIsNotEmpty_andThereIsNoError_when_onFinishedEditingNameCalled_then_thereIsStillNoError() {
         // given
         nameValidator.shouldThrow = false
         viewModel.name = "some name"
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.onFinishedEditingName()
         
         // then
-        XCTAssertNil(viewModel.latestError)
-    }
-    
-    func test_given_errorWasSetOnCallToFinishedEditingName_when_onStartedEditingNameIsCalled_then_errorVanishes() {
-        // given
-        nameValidator.shouldThrow = true
-        viewModel.name = "some name"
-        viewModel.onFinishedEditingName()
-        guard viewModel.latestError != nil else {
-            XCTFail("Error should be set during onFinishedEditingName")
-            return
-        }
-        
-        // when
-        viewModel.onStartedEditingName()
-        
-        // then
-        XCTAssertNil(viewModel.latestError)
+        XCTAssertNil(viewModel.errorToShow)
     }
 }
 
-// MARK: onFinishedEditingEmail & onStartedEditingEmail tests
+// MARK: onFinishedEditingEmail tests
 
 extension RegisterViewModelTests {
     func test_given_emailValidatorThrowsError_andEmailIsNotEmpty_andThereIsNoError_when_onFinishedEditingEmailCalled_then_errorIsSet() {
         // given
         emailValidator.shouldThrow = true
         viewModel.email = "some email"
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.onFinishedEditingEmail()
         
         // then
-        XCTAssertNotNil(viewModel.latestError)
+        XCTAssertNotNil(viewModel.errorToShow)
     }
     
     func test_given_emailValidatorThrowsError_andEmailIsEmpty_andThereIsNoError_when_onFinishedEditingEmailCalled_then_thereIsStillNoError() {
         // given
         emailValidator.shouldThrow = true
         viewModel.email = ""
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.onFinishedEditingEmail()
         
         // then
-        XCTAssertNil(viewModel.latestError)
+        XCTAssertNil(viewModel.errorToShow)
     }
     
     func test_given_emailValidatorDoesntThrowError_andEmailIsNotEmpty_andThereIsNoError_when_onFinishedEditingEmailCalled_then_thereIsStillNoError() {
         // given
         emailValidator.shouldThrow = false
         viewModel.email = "some email"
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.onFinishedEditingEmail()
         
         // then
-        XCTAssertNil(viewModel.latestError)
-    }
-    
-    func test_given_errorWasSetOnCallToFinishedEditingEmail_when_onStartedEditingEmailIsCalled_then_errorVanishes() {
-        // given
-        emailValidator.shouldThrow = true
-        viewModel.email = "some email"
-        viewModel.onFinishedEditingEmail()
-        guard viewModel.latestError != nil else {
-            XCTFail("Error should be set during onFinishedEditingEmail")
-            return
-        }
-        
-        // when
-        viewModel.onStartedEditingEmail()
-        
-        // then
-        XCTAssertNil(viewModel.latestError)
+        XCTAssertNil(viewModel.errorToShow)
     }
 }
 
@@ -210,59 +185,25 @@ extension RegisterViewModelTests {
     func test_given_dateOfBirthValidatorThrowsError_andThereIsNoError_when_dateOfBirthIsSet_then_errorIsSet() {
         // given
         dateOfBirthValidator.shouldThrow = true
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.dateOfBirth = Date.now
         
         // then
-        XCTAssertNotNil(viewModel.latestError)
+        XCTAssertNotNil(viewModel.errorToShow)
     }
     
     func test_given_dateOfBirthValidatorDoesntThrowError_andThereIsNoError_when_dateOfBirthIsSet_then_thereIsStillNoError() {
         // given
         dateOfBirthValidator.shouldThrow = false
-        viewModel.latestError = nil
+        resetErrors()
         
         // when
         viewModel.dateOfBirth = Date.now
         
         // then
-        XCTAssertNil(viewModel.latestError)
-    }
-}
-
-// MARK: one error should be replaced with next one
-
-extension RegisterViewModelTests {
-    func test_given_errorIsRelatedToName_when_newErrorIsShownThatIsRelatedToEmail_then_emailErrorIsVisible() {
-        // given
-        nameValidator.shouldThrow = true
-        nameValidator.messageToThrow = "name error"
-        viewModel.name = "some name"
-        viewModel.onFinishedEditingName()
-        guard viewModel.latestError != nil else {
-            XCTFail("Error should be set during onFinishedEditingName")
-            return
-        }
-        
-        // when
-        emailValidator.shouldThrow = true
-        emailValidator.messageToThrow = "email error"
-        viewModel.email = "some mail"
-        viewModel.onFinishedEditingEmail()
-        
-        // then
-        XCTAssertNotNil(viewModel.latestError)
-        XCTAssertEqual(viewModel.latestError, emailValidator.messageToThrow)
-    }
-}
-
-// MARK: previous error should show up when the one covering him is fixed
-
-extension RegisterViewModelTests {
-    func test_given_errorWasShownRelatedToName_thenItWasCoveredWithErrorRelatedToEmail_when_errorRelatedToEmailVanishes_then_errorRelatedToNameShoulStillBePresent() {
-        // todo: I believe we don't have this functionality yet
+        XCTAssertNil(viewModel.errorToShow)
     }
 }
 
@@ -274,7 +215,7 @@ extension RegisterViewModelTests {
         viewModel.onRegisterButtonTapped()
         
         // then
-        XCTAssertNil(viewModel.latestError)
+        XCTAssertNil(viewModel.errorToShow)
         XCTAssertTrue(coordinator.wentToConfirmation)
         XCTAssertTrue(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
@@ -288,7 +229,7 @@ extension RegisterViewModelTests {
         
         // then
         XCTAssertFalse(coordinator.wentToConfirmation)
-        XCTAssertNotNil(viewModel.latestError)
+        XCTAssertNotNil(viewModel.errorToShow)
         XCTAssertFalse(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
     
@@ -301,7 +242,7 @@ extension RegisterViewModelTests {
         
         // then
         XCTAssertFalse(coordinator.wentToConfirmation)
-        XCTAssertNotNil(viewModel.latestError)
+        XCTAssertNotNil(viewModel.errorToShow)
         XCTAssertFalse(hapticFeedbackGenerator.generatedSuccessfulSound)
     }
     
@@ -314,7 +255,15 @@ extension RegisterViewModelTests {
         
         // then
         XCTAssertFalse(coordinator.wentToConfirmation)
-        XCTAssertNotNil(viewModel.latestError)
+        XCTAssertNotNil(viewModel.errorToShow)
         XCTAssertFalse(hapticFeedbackGenerator.generatedSuccessfulSound)
+    }
+}
+
+private extension RegisterViewModelTests {
+    func resetErrors() {
+        viewModel.nameError = nil
+        viewModel.emailError = nil
+        viewModel.dateOfBirthError = nil
     }
 }
