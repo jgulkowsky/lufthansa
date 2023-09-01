@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SolidButton: View {
     var text: String
-    var isEnabled: Bool
+    var enabled: Bool
+    var color: Color
     var onTap: () -> Void
     
     var body: some View {
@@ -22,8 +23,9 @@ struct SolidButton: View {
         }
         .padding()
         .foregroundColor(.white)
-        .background(isEnabled ? .green : .gray)
+        .background(color)
         .clipShape(Capsule())
+        .disabled(!enabled)
     }
 }
 
@@ -31,7 +33,8 @@ struct SolidButton_Previews: PreviewProvider {
     static var previews: some View {
         SolidButton(
             text: "Button",
-            isEnabled: true,
+            enabled: true,
+            color: .blue,
             onTap: { print("onTap") }
         )
     }

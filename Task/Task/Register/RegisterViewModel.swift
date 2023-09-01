@@ -5,7 +5,7 @@
 //  Created by Jan Gulkowski on 28/08/2023.
 //
 
-import Foundation
+import SwiftUI
 
 class RegisterViewModel: ObservableObject {
     @Published var name: String = "" {
@@ -41,7 +41,14 @@ class RegisterViewModel: ObservableObject {
     @Published var dateOfBirthError: String? = nil
     
     var registerButtonEnabled: Bool {
-        !name.isEmpty && !email.isEmpty && errorToShow == nil
+        !name.isEmpty && !email.isEmpty && errorToShow == nil && checkIfFieldsAreValid()
+    }
+    
+    var registerButtonColor: Color {
+        if errorToShow != nil {
+            return .red
+        }
+        return registerButtonEnabled ? .green : .gray
     }
     
     private unowned var coordinator: Coordinator
@@ -99,6 +106,18 @@ private extension RegisterViewModel {
         validateName()
         validateEmail()
         validateDateOfBirth()
+    }
+    
+    func checkIfFieldsAreValid() -> Bool {
+        do {
+            try nameValidator.validate(name)
+            try emailValidator.validate(email)
+            try dateOfBirthValidator.validate(dateOfBirth)
+        } catch {
+            return false
+        }
+        
+        return true
     }
     
     func validateNameIfNotEmpty() {

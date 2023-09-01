@@ -63,10 +63,10 @@ struct RegisterView: View {
                 
                 SolidButton(
                     text: "Register",
-                    isEnabled: viewModel.registerButtonEnabled,
+                    enabled: viewModel.registerButtonEnabled,
+                    color: viewModel.registerButtonColor,
                     onTap: viewModel.onRegisterButtonTapped
                 )
-                .disabled(!viewModel.registerButtonEnabled)
             }
             .padding()
             .navigationTitle("Register")
