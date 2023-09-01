@@ -265,6 +265,40 @@
 			path = HapticFeedbackGenerator;
 			sourceTree = "<group>";
 		};
+		E34183A52AA21AFC00337865 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				E3923E242A9D4CB200075E5E /* NameValidatorTests.swift */,
+				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
+				E341838C2AA0B93500337865 /* DateOfBirthValidatorTests.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		E34183A62AA21B1000337865 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E341838A2A9E461400337865 /* DateHelperTests.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E34183A72AA21B2700337865 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E34183A82AA21B3700337865 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E3923E1B2A9D4A8400075E5E /* CoordinatorObjectTests.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		E3923DE92A9CC2CB00075E5E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,12 +371,10 @@
 		E3923E232A9D4C4100075E5E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E3923E242A9D4CB200075E5E /* NameValidatorTests.swift */,
-				E32787BD2A9CAE73006D58A0 /* EmailValidatorTests.swift */,
-				E341838C2AA0B93500337865 /* DateOfBirthValidatorTests.swift */,
-				E3923E062A9D457B00075E5E /* RegisterViewModelTests.swift */,
-				E3923E1B2A9D4A8400075E5E /* CoordinatorObjectTests.swift */,
-				E341838A2A9E461400337865 /* DateHelperTests.swift */,
+				E34183A82AA21B3700337865 /* Coordinator */,
+				E34183A72AA21B2700337865 /* ViewModels */,
+				E34183A62AA21B1000337865 /* Helpers */,
+				E34183A52AA21AFC00337865 /* Validators */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
