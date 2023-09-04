@@ -447,7 +447,10 @@ extension RegisterViewModelTests {
 // MARK: - onRegisterButtonTapped tests
 
 extension RegisterViewModelTests {
-    func test_given_validatorsDontThrowDuringValidation_when_viewModelOnRegisterButtonTapped_then_noErrorIsShown_hapticFeedbackGeneratorIsAskedToGenerateSuccessfulSound_andCoordinatorGoesToConfirmation() {
+    func test_given_dateOfBirthIsSet_andValidatorsDontThrowDuringValidation_when_viewModelOnRegisterButtonTapped_then_noErrorIsShown_hapticFeedbackGeneratorIsAskedToGenerateSuccessfulSound_andCoordinatorGoesToConfirmation() {
+        // given
+        viewModel.dateOfBirth = Date.now
+        
         // when
         viewModel.onRegisterButtonTapped()
         
