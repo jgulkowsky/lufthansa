@@ -20,7 +20,7 @@ struct DateOfBirthValidator: DateOfBirthValidating {
         self.dateHelper = dateHelper
     }
     
-    func validate(_ dateOfBirth: Date) throws {
+    func validate(_ dateOfBirth: Date?) throws {
         if !isDateOfBirthValid(dateOfBirth) {
             throw ValidationError.invalidDateOfBirth(message: DateOfBirthValidator.message)
         }
@@ -28,7 +28,10 @@ struct DateOfBirthValidator: DateOfBirthValidating {
 }
 
 private extension DateOfBirthValidator {
-    func isDateOfBirthValid(_ dateOfBirth: Date) -> Bool {
+    func isDateOfBirthValid(_ dateOfBirth: Date?) -> Bool {
+        guard let dateOfBirth = dateOfBirth else {
+            return false
+        }
         dateHelper.setDateFormat(DateOfBirthValidator.dateFormat)
         let minDate = dateHelper.dateFromString(
             DateOfBirthValidator.minDateString

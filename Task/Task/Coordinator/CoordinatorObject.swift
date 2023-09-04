@@ -10,8 +10,7 @@ import Foundation
 class CoordinatorObject: ObservableObject, Coordinator {
     @Published var registerViewModel: RegisterViewModel!
     @Published var confirmationViewModel: ConfirmationViewModel?
-    
-    private var dateHelper = DateHelper()
+    let dateHelper = DateHelper()
     
     init() {
         self.registerViewModel = RegisterViewModel(

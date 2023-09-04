@@ -36,6 +36,8 @@
 		E34183A02AA0F57700337865 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341839F2AA0F57700337865 /* ErrorView.swift */; };
 		E34183A22AA0F5C300337865 /* SolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183A12AA0F5C300337865 /* SolidButton.swift */; };
 		E34183A42AA0FDE300337865 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183A32AA0FDE300337865 /* DatePickerView.swift */; };
+		E34183AA2AA621B300337865 /* DatePickerUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183A92AA621B300337865 /* DatePickerUITextField.swift */; };
+		E34183AC2AA621F300337865 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183AB2AA621F300337865 /* DatePickerTextField.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
 		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
@@ -116,6 +118,8 @@
 		E341839F2AA0F57700337865 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E34183A12AA0F5C300337865 /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
 		E34183A32AA0FDE300337865 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		E34183A92AA621B300337865 /* DatePickerUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerUITextField.swift; sourceTree = "<group>"; };
+		E34183AB2AA621F300337865 /* DatePickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
 		E3923DEA2A9CC2F700075E5E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E3923DEC2A9CC5F700075E5E /* DateHelping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelping.swift; sourceTree = "<group>"; };
 		E3923DF22A9D27F500075E5E /* NameValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidating.swift; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 				E341839F2AA0F57700337865 /* ErrorView.swift */,
 				E34183A12AA0F5C300337865 /* SolidButton.swift */,
 				E34183A32AA0FDE300337865 /* DatePickerView.swift */,
+				E34183A92AA621B300337865 /* DatePickerUITextField.swift */,
+				E34183AB2AA621F300337865 /* DatePickerTextField.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -533,7 +539,9 @@
 				E34183A42AA0FDE300337865 /* DatePickerView.swift in Sources */,
 				E34183982AA0C55D00337865 /* HapticFeedbackGenerator.swift in Sources */,
 				E3923DF82A9D2ADE00075E5E /* ValidationError.swift in Sources */,
+				E34183AC2AA621F300337865 /* DatePickerTextField.swift in Sources */,
 				E32787E42A9CB616006D58A0 /* CoordinatorObject.swift in Sources */,
+				E34183AA2AA621B300337865 /* DatePickerUITextField.swift in Sources */,
 				E32787AD2A9CAE72006D58A0 /* TaskApp.swift in Sources */,
 				E32787D72A9CAFFB006D58A0 /* Coordinator.swift in Sources */,
 			);

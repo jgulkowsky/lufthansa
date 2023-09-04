@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DateOfBirthValidating {
-    func validate(_ dateOfBirth: Date) throws
+    func validate(_ dateOfBirth: Date?) throws
 }

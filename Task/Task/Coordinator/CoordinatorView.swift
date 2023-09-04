@@ -14,13 +14,18 @@ struct CoordinatorView: View {
         if let confirmationViewModel = self.object.confirmationViewModel {
             ConfirmationView(viewModel: confirmationViewModel)
         } else {
-            RegisterView(viewModel: self.object.registerViewModel)
+            RegisterView(
+                viewModel: self.object.registerViewModel,
+                dateHelper: self.object.dateHelper
+            )
         }
     }
 }
 
 struct CoordinatorView_Previews: PreviewProvider {
     static var previews: some View {
-        CoordinatorView(object: CoordinatorObject())
+        CoordinatorView(
+            object: CoordinatorObject()
+        )
     }
 }

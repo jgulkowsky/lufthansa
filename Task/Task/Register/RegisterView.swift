@@ -12,10 +12,12 @@ import SwiftUI
 
 struct RegisterView: View {
     enum FocusedField {
-        case name, email
+        case name, email, dateOfBirth
     }
     
     @ObservedObject var viewModel: RegisterViewModel
+    var dateHelper: DateHelping
+    
     @FocusState private var focusedField: FocusedField?
 
     var body: some View {
@@ -39,16 +41,16 @@ struct RegisterView: View {
                     onEditingFinished: viewModel.onFinishedEditingEmail
                 )
                 .focused($focusedField, equals: .email)
-                .onSubmit { focusedField = nil }
+                .onSubmit { focusedField = .dateOfBirth }
                 
                 DatePickerView(
+                    dateHelper: dateHelper,
                     label: "Date of birth:",
                     date: $viewModel.dateOfBirth,
-                    hasError: viewModel.dateOfBirthError != nil
+                    error: $viewModel.dateOfBirthError
                 )
-                .onTapGesture {
-                    focusedField = nil
-                }
+                .focused($focusedField, equals: .dateOfBirth)
+                .onSubmit { focusedField = nil }
                 
                 if let error = viewModel.errorToShow {
                     ErrorView(error: error)
@@ -85,7 +87,8 @@ struct RegisterView_Previews: PreviewProvider {
                     dateHelper: DateHelper()
                 ),
                 hapticFeedbackGenerator: HapticFeedbackGenerator()
-            )
+            ),
+            dateHelper: DateHelper()
         )
     }
 }

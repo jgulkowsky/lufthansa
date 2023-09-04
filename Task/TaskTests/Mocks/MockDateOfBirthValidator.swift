@@ -10,7 +10,7 @@ import Foundation
 class MockDateOfBirthValidator: DateOfBirthValidating {
     var shouldThrow = false
     
-    func validate(_ dateOfBirth: Date) throws {
+    func validate(_ dateOfBirth: Date?) throws {
         if shouldThrow {
             throw ValidationError.invalidDateOfBirth(
                 message: "invalid date of birth"

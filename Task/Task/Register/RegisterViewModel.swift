@@ -24,7 +24,7 @@ class RegisterViewModel: ObservableObject {
         }
     }
     
-    @Published var dateOfBirth: Date = RegisterViewModel.initialDateOfBirth {
+    @Published var dateOfBirth: Date? {
         didSet {
             onSetNewDateOfBirth()
         }
@@ -58,8 +58,6 @@ class RegisterViewModel: ObservableObject {
     private var dateOfBirthValidator: DateOfBirthValidating
     private var hapticFeedbackGenerator: HapticFeedbackGenerating
     
-    private static let initialDateOfBirth = Date(timeIntervalSince1970: 946724400)
-    
     init(coordinator: Coordinator,
          nameValidator: NameValidating,
          emailValidator: EmailValidating,
@@ -83,7 +81,8 @@ class RegisterViewModel: ObservableObject {
     func onRegisterButtonTapped() {
         validateFields()
         
-        guard errorToShow == nil else {
+        guard errorToShow == nil,
+              let dateOfBirth = dateOfBirth else {
             return
         }
         
