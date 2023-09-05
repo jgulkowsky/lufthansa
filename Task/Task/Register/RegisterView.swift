@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-// todo: verify if haptic works on physical device and add haptic for failed action (need better iPhone than 6s or newer macbook than 2015 - update is not possible here)
-// todo: make these 2 views of nicer design
-
 struct RegisterView: View {
     enum FocusedField {
         case name, email, dateOfBirth
@@ -42,6 +39,7 @@ struct RegisterView: View {
                 )
                 .focused($focusedField, equals: .email)
                 .onSubmit { focusedField = .dateOfBirth }
+                .keyboardType(.emailAddress)
                 
                 DatePickerView(
                     dateHelper: dateHelper,

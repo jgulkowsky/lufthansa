@@ -94,6 +94,4 @@ extension DateHelperTests {
         XCTAssertNotNil(date)
         XCTAssertEqual(date?.timeIntervalSince1970, DateHelperTests.timestampUno)
     }
-    
-    // todo: for some reason when I set dateFormat to be sth else than the default on dd MMM yyyy and pass let's say 10 mar 2020 (that's in previous format) then I can still get proper date - that's weird and we should check it out later on and write tests related to this
 }
