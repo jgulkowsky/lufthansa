@@ -84,6 +84,7 @@ struct RegisterView_Previews: PreviewProvider {
                 dateOfBirthValidator: DateOfBirthValidator(
                     dateHelper: DateHelper()
                 ),
+                dataProvider: DataProvider(),
                 hapticFeedbackGenerator: HapticFeedbackGenerator()
             ),
             dateHelper: DateHelper()

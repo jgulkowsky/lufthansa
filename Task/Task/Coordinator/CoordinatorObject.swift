@@ -20,6 +20,7 @@ class CoordinatorObject: ObservableObject, Coordinator {
             dateOfBirthValidator: DateOfBirthValidator(
                 dateHelper: dateHelper
             ),
+            dataProvider: DataProvider(),
             hapticFeedbackGenerator: HapticFeedbackGenerator()
         )
     }

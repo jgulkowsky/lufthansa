@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 class RegisterViewModel: ObservableObject {
     @Published var name: String = "" {
@@ -56,17 +57,20 @@ class RegisterViewModel: ObservableObject {
     private var nameValidator: NameValidating
     private var emailValidator: EmailValidating
     private var dateOfBirthValidator: DateOfBirthValidating
+    private var dataProvider: DataProviding
     private var hapticFeedbackGenerator: HapticFeedbackGenerating
     
     init(coordinator: Coordinator,
          nameValidator: NameValidating,
          emailValidator: EmailValidating,
          dateOfBirthValidator: DateOfBirthValidating,
+         dataProvider: DataProviding,
          hapticFeedbackGenerator: HapticFeedbackGenerating) {
         self.coordinator = coordinator
         self.nameValidator = nameValidator
         self.emailValidator = emailValidator
         self.dateOfBirthValidator = dateOfBirthValidator
+        self.dataProvider = dataProvider
         self.hapticFeedbackGenerator = hapticFeedbackGenerator
     }
     
@@ -83,6 +87,29 @@ class RegisterViewModel: ObservableObject {
         
         guard errorToShow == nil,
               let dateOfBirth = dateOfBirth else {
+            return
+        }
+        
+        do {
+            let registeredUsers = try dataProvider.getRegisteredUsers()
+            print("@jgu: \(registeredUsers.map { $0.email })")
+            guard !registeredUsers.contains(where: { $0.email == email }) else {
+                // todo: set proper error
+                // todo: on the other hand this is rather dataProvider functinality no? it should rather return proper error and we should show it here
+                print("@jgu: Trying to register with email that's already occupied")
+                return
+            }
+        } catch {
+            print("@jgu: Error on fetchRegisteredUsers")
+            // todo: probably we should show it to the user
+            return
+        }
+
+        do {
+            try dataProvider.saveNewRegisteredUser(name, email, dateOfBirth)
+        } catch {
+            print("@jgu: Error on addUser")
+            // todo: probably we should show it to the user
             return
         }
         

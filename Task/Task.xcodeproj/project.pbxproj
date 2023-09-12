@@ -38,6 +38,16 @@
 		E34183A42AA0FDE300337865 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183A32AA0FDE300337865 /* DatePickerView.swift */; };
 		E34183AA2AA621B300337865 /* DatePickerUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183A92AA621B300337865 /* DatePickerUITextField.swift */; };
 		E34183AC2AA621F300337865 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34183AB2AA621F300337865 /* DatePickerTextField.swift */; };
+		E382101B2AB08B9B00BF9668 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E38210192AB08B9B00BF9668 /* Model.xcdatamodeld */; };
+		E382101D2AB08C6400BF9668 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382101C2AB08C6400BF9668 /* PersistenceController.swift */; };
+		E38210202AB0940100BF9668 /* DataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382101F2AB0940100BF9668 /* DataProviding.swift */; };
+		E38210222AB0944B00BF9668 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38210212AB0944B00BF9668 /* DataProvider.swift */; };
+		E38210242AB0973100BF9668 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38210232AB0973100BF9668 /* MockDataProvider.swift */; };
+		E38210252AB0973E00BF9668 /* DataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382101F2AB0940100BF9668 /* DataProviding.swift */; };
+		E38210262AB0975000BF9668 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E38210192AB08B9B00BF9668 /* Model.xcdatamodeld */; };
+		E38210272AB0976B00BF9668 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38210232AB0973100BF9668 /* MockDataProvider.swift */; };
+		E38210282AB098E100BF9668 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38210212AB0944B00BF9668 /* DataProvider.swift */; };
+		E382102A2AB09A6B00BF9668 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382101C2AB08C6400BF9668 /* PersistenceController.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
 		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
@@ -120,6 +130,11 @@
 		E34183A32AA0FDE300337865 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		E34183A92AA621B300337865 /* DatePickerUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerUITextField.swift; sourceTree = "<group>"; };
 		E34183AB2AA621F300337865 /* DatePickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
+		E382101A2AB08B9B00BF9668 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		E382101C2AB08C6400BF9668 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		E382101F2AB0940100BF9668 /* DataProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviding.swift; sourceTree = "<group>"; };
+		E38210212AB0944B00BF9668 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		E38210232AB0973100BF9668 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		E3923DEA2A9CC2F700075E5E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E3923DEC2A9CC5F700075E5E /* DateHelping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelping.swift; sourceTree = "<group>"; };
 		E3923DF22A9D27F500075E5E /* NameValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidating.swift; sourceTree = "<group>"; };
@@ -190,6 +205,7 @@
 				E32787AC2A9CAE72006D58A0 /* TaskApp.swift */,
 				E34183922AA0C1C600337865 /* TestApp.swift */,
 				E32787AE2A9CAE72006D58A0 /* ContentView.swift */,
+				E38210292AB0999300BF9668 /* Model */,
 				E32787E22A9CB5FB006D58A0 /* Coordinator */,
 				E32787DD2A9CB5B0006D58A0 /* Register */,
 				E32787DC2A9CB5A7006D58A0 /* Confirmation */,
@@ -305,6 +321,24 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		E382101E2AB093D900BF9668 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				E382101F2AB0940100BF9668 /* DataProviding.swift */,
+				E38210212AB0944B00BF9668 /* DataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		E38210292AB0999300BF9668 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E38210192AB08B9B00BF9668 /* Model.xcdatamodeld */,
+				E382101C2AB08C6400BF9668 /* PersistenceController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E3923DE92A9CC2CB00075E5E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +351,7 @@
 		E3923DF12A9D27DC00075E5E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E382101E2AB093D900BF9668 /* DataProvider */,
 				E34183962AA0C53A00337865 /* HapticFeedbackGenerator */,
 				E3923DF62A9D2ACE00075E5E /* Validation */,
 			);
@@ -370,6 +405,7 @@
 				E3923E192A9D479400075E5E /* MockDateOfBirthValidator.swift */,
 				E341838E2AA0B97500337865 /* MockDateHelper.swift */,
 				E34183992AA0C61600337865 /* MockHapticFeedbackGenerator.swift */,
+				E38210232AB0973100BF9668 /* MockDataProvider.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -532,6 +568,8 @@
 				E32787E82A9CB64A006D58A0 /* ConfirmationInfo.swift in Sources */,
 				E32787AF2A9CAE72006D58A0 /* ContentView.swift in Sources */,
 				E34183952AA0C3E800337865 /* HapticFeedbackGenerating.swift in Sources */,
+				E382101B2AB08B9B00BF9668 /* Model.xcdatamodeld in Sources */,
+				E38210272AB0976B00BF9668 /* MockDataProvider.swift in Sources */,
 				E3923E032A9D2E9800075E5E /* DateOfBirthValidator.swift in Sources */,
 				E3923DF52A9D280400075E5E /* NameValidator.swift in Sources */,
 				E32787D92A9CB241006D58A0 /* RegisterView.swift in Sources */,
@@ -539,6 +577,9 @@
 				E34183A42AA0FDE300337865 /* DatePickerView.swift in Sources */,
 				E34183982AA0C55D00337865 /* HapticFeedbackGenerator.swift in Sources */,
 				E3923DF82A9D2ADE00075E5E /* ValidationError.swift in Sources */,
+				E382101D2AB08C6400BF9668 /* PersistenceController.swift in Sources */,
+				E38210202AB0940100BF9668 /* DataProviding.swift in Sources */,
+				E38210222AB0944B00BF9668 /* DataProvider.swift in Sources */,
 				E34183AC2AA621F300337865 /* DatePickerTextField.swift in Sources */,
 				E32787E42A9CB616006D58A0 /* CoordinatorObject.swift in Sources */,
 				E34183AA2AA621B300337865 /* DatePickerUITextField.swift in Sources */,
@@ -566,10 +607,15 @@
 				E3923E1A2A9D479400075E5E /* MockDateOfBirthValidator.swift in Sources */,
 				E341839C2AA0C6B100337865 /* HapticFeedbackGenerator.swift in Sources */,
 				E3923E072A9D457B00075E5E /* RegisterViewModelTests.swift in Sources */,
+				E382102A2AB09A6B00BF9668 /* PersistenceController.swift in Sources */,
 				E3923E132A9D468F00075E5E /* MockCoordinator.swift in Sources */,
+				E38210242AB0973100BF9668 /* MockDataProvider.swift in Sources */,
 				E3923E1D2A9D4A9E00075E5E /* CoordinatorObject.swift in Sources */,
+				E38210282AB098E100BF9668 /* DataProvider.swift in Sources */,
 				E341838D2AA0B93500337865 /* DateOfBirthValidatorTests.swift in Sources */,
 				E3923E202A9D4ACF00075E5E /* NameValidator.swift in Sources */,
+				E38210262AB0975000BF9668 /* Model.xcdatamodeld in Sources */,
+				E38210252AB0973E00BF9668 /* DataProviding.swift in Sources */,
 				E3923E0D2A9D460D00075E5E /* DateOfBirthValidating.swift in Sources */,
 				E3923E1F2A9D4ABB00075E5E /* DateOfBirthValidator.swift in Sources */,
 				E3923E1E2A9D4AA600075E5E /* ConfirmationViewModel.swift in Sources */,
@@ -897,6 +943,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E38210192AB08B9B00BF9668 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E382101A2AB08B9B00BF9668 /* Model.xcdatamodel */,
+			);
+			currentVersion = E382101A2AB08B9B00BF9668 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E32787A12A9CAE71006D58A0 /* Project object */;
 }
