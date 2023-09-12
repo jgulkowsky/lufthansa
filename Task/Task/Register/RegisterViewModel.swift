@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 class RegisterViewModel: ObservableObject {
     @Published var name: String = "" {
@@ -18,6 +19,7 @@ class RegisterViewModel: ObservableObject {
     
     @Published var email: String = "" {
         didSet {
+            emailOccupiedError = nil
             if emailError != nil {
                 validateEmailIfNotEmpty()
             }
@@ -31,7 +33,7 @@ class RegisterViewModel: ObservableObject {
     }
     
     var errorToShow: String? {
-        [nameError, emailError, dateOfBirthError]
+        [nameError, emailError, dateOfBirthError, emailOccupiedError]
         .compactMap { $0 }
         .first
     }
@@ -39,6 +41,7 @@ class RegisterViewModel: ObservableObject {
     @Published var nameError: String? = nil
     @Published var emailError: String? = nil
     @Published var dateOfBirthError: String? = nil
+    @Published var emailOccupiedError: String? = nil
     
     var registerButtonEnabled: Bool {
         !name.isEmpty && !email.isEmpty && errorToShow == nil && checkIfFieldsAreValid()
@@ -56,17 +59,20 @@ class RegisterViewModel: ObservableObject {
     private var nameValidator: NameValidating
     private var emailValidator: EmailValidating
     private var dateOfBirthValidator: DateOfBirthValidating
+    private var dataProvider: DataProviding
     private var hapticFeedbackGenerator: HapticFeedbackGenerating
     
     init(coordinator: Coordinator,
          nameValidator: NameValidating,
          emailValidator: EmailValidating,
          dateOfBirthValidator: DateOfBirthValidating,
+         dataProvider: DataProviding,
          hapticFeedbackGenerator: HapticFeedbackGenerating) {
         self.coordinator = coordinator
         self.nameValidator = nameValidator
         self.emailValidator = emailValidator
         self.dateOfBirthValidator = dateOfBirthValidator
+        self.dataProvider = dataProvider
         self.hapticFeedbackGenerator = hapticFeedbackGenerator
     }
     
@@ -83,6 +89,15 @@ class RegisterViewModel: ObservableObject {
         
         guard errorToShow == nil,
               let dateOfBirth = dateOfBirth else {
+            return
+        }
+
+        do {
+            try dataProvider.saveNewRegisteredUser(name, email, dateOfBirth)
+        } catch DataProvidingError.emailOccupied {
+            emailOccupiedError = "Unfortunatelly this email is taken.\nTry with the other one :)"
+            return
+        } catch {
             return
         }
         
@@ -117,7 +132,6 @@ private extension RegisterViewModel {
         } catch {
             return false
         }
-        
         return true
     }
     

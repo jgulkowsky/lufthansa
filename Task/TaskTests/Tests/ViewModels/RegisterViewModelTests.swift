@@ -14,6 +14,7 @@ final class RegisterViewModelTests: XCTestCase {
     private var nameValidator: MockNameValidator!
     private var emailValidator: MockEmailValidator!
     private var dateOfBirthValidator: MockDateOfBirthValidator!
+    private var dataProvider: MockDataProvider!
     private var hapticFeedbackGenerator: MockHapticFeedbackGenerator!
     
     override func setUp() {
@@ -21,6 +22,7 @@ final class RegisterViewModelTests: XCTestCase {
         nameValidator = MockNameValidator()
         emailValidator = MockEmailValidator()
         dateOfBirthValidator = MockDateOfBirthValidator()
+        dataProvider = MockDataProvider()
         hapticFeedbackGenerator = MockHapticFeedbackGenerator()
         
         viewModel = RegisterViewModel(
@@ -28,6 +30,7 @@ final class RegisterViewModelTests: XCTestCase {
             nameValidator: nameValidator,
             emailValidator: emailValidator,
             dateOfBirthValidator: dateOfBirthValidator,
+            dataProvider: dataProvider,
             hapticFeedbackGenerator: hapticFeedbackGenerator
         )
     }
@@ -518,3 +521,5 @@ private extension RegisterViewModelTests {
         }
     }
 }
+
+// todo: add tests related to dataProvider

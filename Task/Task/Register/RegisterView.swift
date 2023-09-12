@@ -34,7 +34,7 @@ struct RegisterView: View {
                     label: "E-mail:",
                     placeholder: "john.smith@go.co",
                     text: $viewModel.email,
-                    hasError: viewModel.emailError != nil,
+                    hasError: viewModel.emailError != nil || viewModel.emailOccupiedError != nil,
                     onEditingFinished: viewModel.onFinishedEditingEmail
                 )
                 .focused($focusedField, equals: .email)
@@ -84,6 +84,7 @@ struct RegisterView_Previews: PreviewProvider {
                 dateOfBirthValidator: DateOfBirthValidator(
                     dateHelper: DateHelper()
                 ),
+                dataProvider: DataProvider(),
                 hapticFeedbackGenerator: HapticFeedbackGenerator()
             ),
             dateHelper: DateHelper()

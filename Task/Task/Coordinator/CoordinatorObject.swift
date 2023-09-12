@@ -10,7 +10,10 @@ import Foundation
 class CoordinatorObject: ObservableObject, Coordinator {
     @Published var registerViewModel: RegisterViewModel!
     @Published var confirmationViewModel: ConfirmationViewModel?
+    
     let dateHelper = DateHelper()
+    
+    private let dataProvider = DataProvider()
     
     init() {
         self.registerViewModel = RegisterViewModel(
@@ -20,13 +23,17 @@ class CoordinatorObject: ObservableObject, Coordinator {
             dateOfBirthValidator: DateOfBirthValidator(
                 dateHelper: dateHelper
             ),
+            dataProvider: dataProvider,
             hapticFeedbackGenerator: HapticFeedbackGenerator()
         )
     }
     
     func goToConfirmation(_ info: ConfirmationInfo) {
         self.confirmationViewModel = ConfirmationViewModel(
-            info: info, coordinator: self, dateHelper: dateHelper
+            info: info,
+            coordinator: self,
+            dateHelper: dateHelper,
+            dataProvider: dataProvider
         )
     }
 }

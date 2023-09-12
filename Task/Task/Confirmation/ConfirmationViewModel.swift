@@ -11,6 +11,7 @@ class ConfirmationViewModel: ObservableObject {
     @Published var name: String
     @Published var email: String
     @Published var dateOfBirth: String
+    @Published var registeredUserNumber: String
     
     private unowned var coordinator: Coordinator
     
@@ -18,7 +19,8 @@ class ConfirmationViewModel: ObservableObject {
     
     init(info: ConfirmationInfo,
          coordinator: Coordinator,
-         dateHelper: DateHelping
+         dateHelper: DateHelping,
+         dataProvider: DataProviding
     ) {
         self.coordinator = coordinator
 
@@ -26,5 +28,7 @@ class ConfirmationViewModel: ObservableObject {
         self.email = info.email
         dateHelper.setDateFormat(ConfirmationViewModel.dateFormat)
         self.dateOfBirth = dateHelper.dateToString(info.dateOfBirth)
+        
+        self.registeredUserNumber = dataProvider.getAllRegisteredUsers().count.ordinal
     }
 }
