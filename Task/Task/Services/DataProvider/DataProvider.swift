@@ -10,6 +10,10 @@ import CoreData
 struct DataProvider: DataProviding {
     private let viewContext = PersistenceController.shared.viewContext
     
+    func getAllRegisteredUsers() -> [RegistrationData] {
+        return getRegisteredUsers()
+    }
+    
     func saveNewRegisteredUser(_ name: String, _ email: String, _ dateOfBirth: Date) throws {
         let alreadyRegisteredUsers = getRegisteredUsers()
         

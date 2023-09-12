@@ -8,7 +8,7 @@
 import CoreData
 
 struct PersistenceController {
-    static let shared = PersistenceController() // todo: should we use statics?
+    static let shared = PersistenceController()
     let container: NSPersistentContainer
     
     var viewContext: NSManagedObjectContext {

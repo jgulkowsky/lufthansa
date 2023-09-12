@@ -8,5 +8,6 @@
 import Foundation
 
 protocol DataProviding {
+    func getAllRegisteredUsers() -> [RegistrationData]
     func saveNewRegisteredUser(_ name: String, _ email: String, _ dateOfBirth: Date) throws
 }

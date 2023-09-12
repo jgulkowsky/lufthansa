@@ -34,6 +34,9 @@ struct ConfirmationView: View {
                     .padding(.top, 2)
                     .font(.system(size: 17, weight: .medium))
                 
+                Text("You are \(viewModel.registeredUserNumber) user registered :)")
+                    .padding(.top, 10)
+                
                 Spacer()
             }
             .padding()
@@ -62,7 +65,8 @@ struct ConfirmationView_Previews: PreviewProvider {
             viewModel: ConfirmationViewModel(
                 info: info,
                 coordinator: CoordinatorObject(),
-                dateHelper: DateHelper()
+                dateHelper: DateHelper(),
+                dataProvider: DataProvider()
             )
         )
     }
