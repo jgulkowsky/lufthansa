@@ -7,15 +7,12 @@
 
 import CoreData
 
-enum DataProvidingError: Error {
-    case emailOccupied
-}
-
 struct DataProvider: DataProviding {
     private let viewContext = PersistenceController.shared.viewContext
     
     func saveNewRegisteredUser(_ name: String, _ email: String, _ dateOfBirth: Date) throws {
-        let alreadyRegisteredUsers = try getRegisteredUsers()
+        let alreadyRegisteredUsers = getRegisteredUsers()
+        
         guard !alreadyRegisteredUsers.contains(where: { $0.email == email }) else {
             throw DataProvidingError.emailOccupied
         }
@@ -24,17 +21,27 @@ struct DataProvider: DataProviding {
         registrationData.name = name
         registrationData.email = email
         registrationData.dateOfBirth = dateOfBirth
-        try save()
+        
+        save()
     }
 }
 
 private extension DataProvider {
-    func save() throws {
-        try viewContext.save()
+    func save() {
+        do {
+            try viewContext.save()
+        } catch {
+            print("@jgu: Error in \(#fileID).\(#function)")
+        }
     }
     
-    func getRegisteredUsers() throws -> [RegistrationData] {
-        let request = NSFetchRequest<RegistrationData>(entityName: "RegistrationData")
-        return try viewContext.fetch(request)
+    func getRegisteredUsers() -> [RegistrationData] {
+        do {
+            let request = NSFetchRequest<RegistrationData>(entityName: "RegistrationData")
+            return try viewContext.fetch(request)
+        } catch {
+            print("@jgu: Error in \(#fileID).\(#function)")
+            return []
+        }
     }
 }

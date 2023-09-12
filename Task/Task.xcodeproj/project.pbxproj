@@ -48,6 +48,8 @@
 		E38210272AB0976B00BF9668 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38210232AB0973100BF9668 /* MockDataProvider.swift */; };
 		E38210282AB098E100BF9668 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38210212AB0944B00BF9668 /* DataProvider.swift */; };
 		E382102A2AB09A6B00BF9668 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382101C2AB08C6400BF9668 /* PersistenceController.swift */; };
+		E382102C2AB0A4BF00BF9668 /* DataProvidingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382102B2AB0A4BF00BF9668 /* DataProvidingError.swift */; };
+		E382102D2AB0A4C500BF9668 /* DataProvidingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382102B2AB0A4BF00BF9668 /* DataProvidingError.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
 		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
@@ -135,6 +137,7 @@
 		E382101F2AB0940100BF9668 /* DataProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviding.swift; sourceTree = "<group>"; };
 		E38210212AB0944B00BF9668 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		E38210232AB0973100BF9668 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
+		E382102B2AB0A4BF00BF9668 /* DataProvidingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvidingError.swift; sourceTree = "<group>"; };
 		E3923DEA2A9CC2F700075E5E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E3923DEC2A9CC5F700075E5E /* DateHelping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelping.swift; sourceTree = "<group>"; };
 		E3923DF22A9D27F500075E5E /* NameValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidating.swift; sourceTree = "<group>"; };
@@ -326,6 +329,7 @@
 			children = (
 				E382101F2AB0940100BF9668 /* DataProviding.swift */,
 				E38210212AB0944B00BF9668 /* DataProvider.swift */,
+				E382102B2AB0A4BF00BF9668 /* DataProvidingError.swift */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -551,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E382102C2AB0A4BF00BF9668 /* DataProvidingError.swift in Sources */,
 				E34183A02AA0F57700337865 /* ErrorView.swift in Sources */,
 				E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */,
 				E32787DB2A9CB3F9006D58A0 /* ConfirmationView.swift in Sources */,
@@ -609,6 +614,7 @@
 				E3923E072A9D457B00075E5E /* RegisterViewModelTests.swift in Sources */,
 				E382102A2AB09A6B00BF9668 /* PersistenceController.swift in Sources */,
 				E3923E132A9D468F00075E5E /* MockCoordinator.swift in Sources */,
+				E382102D2AB0A4C500BF9668 /* DataProvidingError.swift in Sources */,
 				E38210242AB0973100BF9668 /* MockDataProvider.swift in Sources */,
 				E3923E1D2A9D4A9E00075E5E /* CoordinatorObject.swift in Sources */,
 				E38210282AB098E100BF9668 /* DataProvider.swift in Sources */,

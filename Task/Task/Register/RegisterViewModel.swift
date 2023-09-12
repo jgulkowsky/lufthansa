@@ -98,8 +98,6 @@ class RegisterViewModel: ObservableObject {
             emailOccupiedError = "Unfortunatelly this email is taken.\nTry with the other one :)"
             return
         } catch {
-            print("@jgu: error during saving new registered user")
-            // todo: probably we should show it to the user
             return
         }
         
