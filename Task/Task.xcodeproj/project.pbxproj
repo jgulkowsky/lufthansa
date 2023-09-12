@@ -51,6 +51,7 @@
 		E382102C2AB0A4BF00BF9668 /* DataProvidingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382102B2AB0A4BF00BF9668 /* DataProvidingError.swift */; };
 		E382102D2AB0A4C500BF9668 /* DataProvidingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382102B2AB0A4BF00BF9668 /* DataProvidingError.swift */; };
 		E38210302AB0A73700BF9668 /* Int+Ordinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382102F2AB0A73700BF9668 /* Int+Ordinal.swift */; };
+		E38210312AB0B98A00BF9668 /* Int+Ordinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382102F2AB0A73700BF9668 /* Int+Ordinal.swift */; };
 		E3923DEB2A9CC2F700075E5E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEA2A9CC2F700075E5E /* DateHelper.swift */; };
 		E3923DED2A9CC5F700075E5E /* DateHelping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DEC2A9CC5F700075E5E /* DateHelping.swift */; };
 		E3923DF32A9D27F500075E5E /* NameValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3923DF22A9D27F500075E5E /* NameValidating.swift */; };
@@ -624,6 +625,7 @@
 				E3923E1A2A9D479400075E5E /* MockDateOfBirthValidator.swift in Sources */,
 				E341839C2AA0C6B100337865 /* HapticFeedbackGenerator.swift in Sources */,
 				E3923E072A9D457B00075E5E /* RegisterViewModelTests.swift in Sources */,
+				E38210312AB0B98A00BF9668 /* Int+Ordinal.swift in Sources */,
 				E382102A2AB09A6B00BF9668 /* PersistenceController.swift in Sources */,
 				E3923E132A9D468F00075E5E /* MockCoordinator.swift in Sources */,
 				E382102D2AB0A4C500BF9668 /* DataProvidingError.swift in Sources */,
