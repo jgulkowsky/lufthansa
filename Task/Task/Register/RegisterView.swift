@@ -34,7 +34,7 @@ struct RegisterView: View {
                     label: "E-mail:",
                     placeholder: "john.smith@go.co",
                     text: $viewModel.email,
-                    hasError: viewModel.emailError != nil,
+                    hasError: viewModel.emailError != nil || viewModel.emailOccupiedError != nil,
                     onEditingFinished: viewModel.onFinishedEditingEmail
                 )
                 .focused($focusedField, equals: .email)

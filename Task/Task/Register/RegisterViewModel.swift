@@ -19,6 +19,7 @@ class RegisterViewModel: ObservableObject {
     
     @Published var email: String = "" {
         didSet {
+            emailOccupiedError = nil
             if emailError != nil {
                 validateEmailIfNotEmpty()
             }
@@ -32,7 +33,7 @@ class RegisterViewModel: ObservableObject {
     }
     
     var errorToShow: String? {
-        [nameError, emailError, dateOfBirthError]
+        [nameError, emailError, dateOfBirthError, emailOccupiedError]
         .compactMap { $0 }
         .first
     }
@@ -40,6 +41,7 @@ class RegisterViewModel: ObservableObject {
     @Published var nameError: String? = nil
     @Published var emailError: String? = nil
     @Published var dateOfBirthError: String? = nil
+    @Published var emailOccupiedError: String? = nil
     
     var registerButtonEnabled: Bool {
         !name.isEmpty && !email.isEmpty && errorToShow == nil && checkIfFieldsAreValid()
@@ -89,26 +91,14 @@ class RegisterViewModel: ObservableObject {
               let dateOfBirth = dateOfBirth else {
             return
         }
-        
-        do {
-            let registeredUsers = try dataProvider.getRegisteredUsers()
-            print("@jgu: \(registeredUsers.map { $0.email })")
-            guard !registeredUsers.contains(where: { $0.email == email }) else {
-                // todo: set proper error
-                // todo: on the other hand this is rather dataProvider functinality no? it should rather return proper error and we should show it here
-                print("@jgu: Trying to register with email that's already occupied")
-                return
-            }
-        } catch {
-            print("@jgu: Error on fetchRegisteredUsers")
-            // todo: probably we should show it to the user
-            return
-        }
 
         do {
             try dataProvider.saveNewRegisteredUser(name, email, dateOfBirth)
+        } catch DataProvidingError.emailOccupied {
+            emailOccupiedError = "Unfortunatelly this email is taken.\nTry with the other one :)"
+            return
         } catch {
-            print("@jgu: Error on addUser")
+            print("@jgu: error during saving new registered user")
             // todo: probably we should show it to the user
             return
         }
@@ -144,7 +134,6 @@ private extension RegisterViewModel {
         } catch {
             return false
         }
-        
         return true
     }
     

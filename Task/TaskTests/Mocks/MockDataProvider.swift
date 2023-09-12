@@ -8,9 +8,5 @@
 import Foundation
 
 struct MockDataProvider: DataProviding {
-    func getRegisteredUsers() throws -> [RegistrationData] {
-        return []
-    }
-    
     func saveNewRegisteredUser(_ name: String, _ email: String, _ dateOfBirth: Date) throws {}
 }
